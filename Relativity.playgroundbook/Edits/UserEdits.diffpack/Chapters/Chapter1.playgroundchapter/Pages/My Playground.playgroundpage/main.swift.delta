@@ -7,9 +7,12 @@
 		<dict>
 			<key>ModifiedContent</key>
 			<string>import PlaygroundSupport
+
+let view = instantiateViewController(for: "test")
+PlaygroundPage.current.liveView = view
 </string>
 			<key>ModifiedRange</key>
-			<string>{0, 25}</string>
+			<string>{0, 115}</string>
 			<key>OriginalContent</key>
 			<string></string>
 			<key>OriginalRange</key>

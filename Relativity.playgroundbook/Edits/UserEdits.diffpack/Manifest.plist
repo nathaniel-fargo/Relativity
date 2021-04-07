@@ -30,11 +30,27 @@
 			</dict>
 			<dict>
 				<key>File</key>
-				<string>UserModules/Scenes.playgroundmodule/Sources/Scenes.swift</string>
+				<string>UserModules/Bodies.playgroundmodule/Sources/Light.swift</string>
 			</dict>
 			<dict>
 				<key>File</key>
-				<string>UserModules/Bodies.playgroundmodule/Sources/Light.swift</string>
+				<string>UserModules/Scenes.playgroundmodule/Sources/SceneManager.swift</string>
+			</dict>
+			<dict>
+				<key>File</key>
+				<string>UserModules/Scenes.playgroundmodule/Sources/SimViewController.swift</string>
+			</dict>
+			<dict>
+				<key>File</key>
+				<string>UserModules/Scenes.playgroundmodule/Sources/SimScene.swift</string>
+			</dict>
+			<dict>
+				<key>File</key>
+				<string>UserModules/Scenes.playgroundmodule/Sources/TestingGrounds.swift</string>
+			</dict>
+			<dict>
+				<key>File</key>
+				<string>UserModules/Scenes.playgroundmodule/Sources/BouncingLight.swift</string>
 			</dict>
 		</array>
 		<key>Modified</key>
