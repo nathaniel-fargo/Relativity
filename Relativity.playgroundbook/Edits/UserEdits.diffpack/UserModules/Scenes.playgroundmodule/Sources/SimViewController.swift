@@ -23,7 +23,10 @@ public class SimViewController: UIViewController {
         super.viewDidLoad()
             /* idk what this does but maybe mess around with it l8r */
         skView.ignoresSiblingOrder = false
-        scene.scaleMode = .aspectFill
+        scene.scaleMode = .aspectFit
         skView.presentScene(scene)
+    }
+    public func getScene() -> SimScene {
+        return scene
     }
 }

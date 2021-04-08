@@ -3,15 +3,18 @@ import SpriteKit
 import GameKit
 import PlaygroundSupport
 
-class SimScene: SKScene {
+public class SimScene: SKScene {
+    
+    public var simSpeed: CGFloat = 1
+    
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     override init() {
         super.init(size: UIScreen.main.bounds.size)
-        // self.backgroundColor = UIColor.cyan
+        self.backgroundColor = UIColor.white
     }
-    override func didMove(to view: SKView) {
+    public override func didMove(to view: SKView) {
         
     }
     

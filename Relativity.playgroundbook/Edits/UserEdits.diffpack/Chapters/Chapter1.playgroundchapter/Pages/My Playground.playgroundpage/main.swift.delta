@@ -7,16 +7,25 @@
 		<dict>
 			<key>ModifiedContent</key>
 			<string>import PlaygroundSupport
+import CoreGraphics
 
+// Create View
 let view = instantiateViewController(for: "test")
+// Set View
 PlaygroundPage.current.liveView = view
+// Get Scene
+let simScene = (view as! SimViewController).getScene()
+
+// Modify Scene
+simScene.simSpeed = 3
 </string>
 			<key>ModifiedRange</key>
-			<string>{0, 115}</string>
+			<string>{0, 269}</string>
 			<key>OriginalContent</key>
-			<string></string>
+			<string>
+</string>
 			<key>OriginalRange</key>
-			<string>{0, 0}</string>
+			<string>{0, 1}</string>
 		</dict>
 	</array>
 	<key>File</key>

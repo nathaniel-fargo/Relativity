@@ -30,10 +30,6 @@
 			</dict>
 			<dict>
 				<key>File</key>
-				<string>UserModules/Bodies.playgroundmodule/Sources/Light.swift</string>
-			</dict>
-			<dict>
-				<key>File</key>
 				<string>UserModules/Scenes.playgroundmodule/Sources/SceneManager.swift</string>
 			</dict>
 			<dict>
@@ -51,6 +47,22 @@
 			<dict>
 				<key>File</key>
 				<string>UserModules/Scenes.playgroundmodule/Sources/BouncingLight.swift</string>
+			</dict>
+			<dict>
+				<key>File</key>
+				<string>UserModules/Math.playgroundmodule/Sources/CGPoint.swift</string>
+			</dict>
+			<dict>
+				<key>File</key>
+				<string>UserModules/Entities.playgroundmodule/Sources/LightRay.swift</string>
+			</dict>
+			<dict>
+				<key>File</key>
+				<string>UserModules/Math.playgroundmodule/Sources/Axis.swift</string>
+			</dict>
+			<dict>
+				<key>File</key>
+				<string>UserModules/Math.playgroundmodule/Sources/Random.swift</string>
 			</dict>
 		</array>
 		<key>Modified</key>
