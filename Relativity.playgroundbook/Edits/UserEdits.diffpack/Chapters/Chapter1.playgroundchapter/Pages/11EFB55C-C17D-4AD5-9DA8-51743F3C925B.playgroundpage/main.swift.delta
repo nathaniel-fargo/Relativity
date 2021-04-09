@@ -2,6 +2,8 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>BaseFile</key>
+	<string>Chapters/Chapter1.playgroundchapter/Pages/Template.playgroundpage/main.swift</string>
 	<key>Diffs</key>
 	<array>
 		<dict>
@@ -10,17 +12,29 @@
 import CoreGraphics
 
 // Create View
-let view = instantiateViewController(for: "test")
+let view = instantiateViewController(for: "adjustableClock")
 // Set View
 PlaygroundPage.current.liveView = view
 // Get Scene
-let simScene = (view as! SimViewController).getScene()
+let scene = (view as! SimViewController).getScene() as! AdjustableClock
 
-// Modify Scene
-simScene.simSpeed = 20
+struct Interaction {
+    var simulationSpeed: CGFloat {
+        get {
+            return scene.simSpeed
+        }
+        set (speed) {
+            scene.simSpeed = speed
+        }
+    }
+}
+var simulation = Interaction()
+
+// Simulation Speed
+simulation.simulationSpeed = 15
 </string>
 			<key>ModifiedRange</key>
-			<string>{0, 270}</string>
+			<string>{0, 532}</string>
 			<key>OriginalContent</key>
 			<string>
 </string>

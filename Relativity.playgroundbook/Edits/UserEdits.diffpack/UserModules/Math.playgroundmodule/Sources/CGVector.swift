@@ -1,6 +1,10 @@
 import CoreGraphics
 
 extension CGVector {
+    public static func random() -> CGVector {
+        let theta = RandomDecimal() * .pi * 2
+        return CGVector(sin(theta), cos(theta))
+    }
     // init with CGFloat
     public init(_ dx: CGFloat, _ dy: CGFloat) {
         self.init()
