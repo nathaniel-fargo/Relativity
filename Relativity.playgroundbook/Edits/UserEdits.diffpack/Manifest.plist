@@ -38,6 +38,8 @@
 		<string>Added</string>
 		<key>UserModules/Entities.playgroundmodule/Sources/LightClock.swift</key>
 		<string>Added</string>
+		<key>UserModules/Entities.playgroundmodule/Sources/Meter.swift</key>
+		<string>Added</string>
 		<key>UserModules/Entities.playgroundmodule/Sources/Photon.swift</key>
 		<string>Added</string>
 		<key>UserModules/Math.playgroundmodule/Sources/CGPoint.swift</key>
@@ -56,15 +58,15 @@
 		<string>Added</string>
 		<key>UserModules/Scenes.playgroundmodule/Sources/ClockScene.swift</key>
 		<string>Added</string>
-		<key>UserModules/Scenes.playgroundmodule/Sources/LengthContraction.swift</key>
+		<key>UserModules/Scenes.playgroundmodule/Sources/LCSCNScene.swift</key>
+		<string>Added</string>
+		<key>UserModules/Scenes.playgroundmodule/Sources/LCSKScene.swift</key>
+		<string>Added</string>
+		<key>UserModules/Scenes.playgroundmodule/Sources/LCViewController.swift</key>
 		<string>Added</string>
 		<key>UserModules/Scenes.playgroundmodule/Sources/MovingClock.swift</key>
 		<string>Added</string>
 		<key>UserModules/Scenes.playgroundmodule/Sources/SceneManager.swift</key>
-		<string>Added</string>
-		<key>UserModules/Scenes.playgroundmodule/Sources/Sim3DScene.swift</key>
-		<string>Added</string>
-		<key>UserModules/Scenes.playgroundmodule/Sources/Sim3DViewController.swift</key>
 		<string>Added</string>
 		<key>UserModules/Scenes.playgroundmodule/Sources/SimScene.swift</key>
 		<string>Added</string>

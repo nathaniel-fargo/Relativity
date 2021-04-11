@@ -20,7 +20,7 @@ public class BouncingLight: SimScene {
     override init() {
         
         // do stuff up here
-        for i in 0...rectsCount {
+        for _ in 0...rectsCount {
             let w: CGFloat = Random(min: 20, max: 150)
             let h: CGFloat = Random(min: 20, max: 150)
             let newRect = SKShapeNode(rect: CGRect(x: Random(min: superBounds.minX, max: superBounds.maxX - w), y: Random(min: superBounds.minY, max: superBounds.maxY - h), width: w, height: h))

@@ -7,7 +7,7 @@ public class MovingClock: SimScene {
     public func addClock(speed: CGFloat) {
         clockY = clockY - clockHeight - clockPadding
         clockY = clockY > 0 ? clockY : clockY + superBounds.height - clockHeight
-        var newClock = LightClock(frame: CGRect(x: superBounds.midX - clockWidth / 2, y: clockY, width: clockWidth, height: clockHeight), mirrorHeight: 30, photonRadius: nil, mirrorColor: UIColor(hue: RandomDecimal(), saturation: speed, brightness: 0.5, alpha: 1))
+        let newClock = LightClock(frame: CGRect(x: superBounds.midX - clockWidth / 2, y: clockY, width: clockWidth, height: clockHeight), mirrorHeight: 30, photonRadius: nil, mirrorColor: UIColor(hue: RandomDecimal(), saturation: speed, brightness: 0.5, alpha: 1))
         newClock.velocity = speed
         newClock.addChildren(to: self)
         clocks.append(newClock)

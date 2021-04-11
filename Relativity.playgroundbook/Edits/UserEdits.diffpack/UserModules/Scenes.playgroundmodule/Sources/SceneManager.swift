@@ -13,7 +13,7 @@ public func instantiateViewController(for page: String) -> UIViewController {
     case "adjustableClock":
         return SimViewController(scene: AdjustableClock())
     case "lengthContraction":
-        return Sim3DViewController(scene: LengthContraction())
+        return LCViewController()
     default:
         return SimViewController(scene: TestingGrounds())
     }

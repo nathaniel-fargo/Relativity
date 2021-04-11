@@ -9,37 +9,26 @@
 		<dict>
 			<key>ModifiedContent</key>
 			<string>import PlaygroundSupport
-import CoreGraphics
-
-// Create View
-let view = instantiateViewController(for: "lengthContraction")
-// Set View
-PlaygroundPage.current.liveView = view
-// Get Scene
-let scene = (view as! Sim3DViewController).getScene() as! LengthContraction
-
-struct Interaction {
-    var simulationSpeed: CGFloat {
-        get {
-            return scene.simSpeed
-        }
-        set (speed) {
-            scene.simSpeed = speed
-        }
-    }
-}
-var simulation = Interaction()
-
-// Simulation Speed
-simulation.simulationSpeed = 15
 </string>
 			<key>ModifiedRange</key>
-			<string>{0, 538}</string>
+			<string>{0, 25}</string>
 			<key>OriginalContent</key>
-			<string>
-</string>
+			<string></string>
 			<key>OriginalRange</key>
-			<string>{0, 1}</string>
+			<string>{0, 0}</string>
+		</dict>
+		<dict>
+			<key>ModifiedContent</key>
+			<string>let view = instantiateViewController(for: "lengthContraction")
+PlaygroundPage.current.wantsFullScreenLiveView = true
+PlaygroundPage.current.liveView = view
+</string>
+			<key>ModifiedRange</key>
+			<string>{26, 156}</string>
+			<key>OriginalContent</key>
+			<string></string>
+			<key>OriginalRange</key>
+			<string>{1, 0}</string>
 		</dict>
 	</array>
 	<key>FormatVersion</key>

@@ -35,18 +35,32 @@ extension CGVector {
         return CGVector(dx/mag, dy/mag)
     }
     // Add Vectors
-    static public func + (_ v1: CGVector, _ v2: CGVector) -> CGVector {
+    public static func + (_ v1: CGVector, _ v2: CGVector) -> CGVector {
         return CGVector(v1.dx + v2.dx, v1.dy + v2.dy)
     }
     public static func += (_ v1: inout CGVector, _ v2: CGVector) {
         v1 = v1 + v2
     }
+    // Subtract Vectors
+    public static func - (_ v1: CGVector, _ v2: CGVector) -> CGVector {
+        return CGVector(v1.dx - v2.dx, v1.dy - v2.dy)
+    }
+    public static func -= (_ v1: inout CGVector, _ v2: CGVector) {
+        v1 = v1 - v2
+    }
     // Multiply Vectors
-    static public func * (_ v: CGVector, _ s: CGFloat) -> CGVector {
+    public static func * (_ v: CGVector, _ s: CGFloat) -> CGVector {
         return CGVector(v.dx * s, v.dy * s)
     }
     public static func *= (_ v: inout CGVector, _ s: CGFloat) {
         v = v * s
+    }
+    // Divide Vectors (I don't think I use this but I just wanted to complete the basic maths)
+    public static func / (_ v: CGVector, _ s: CGFloat) -> CGVector {
+        return CGVector(v.dx / s, v.dy / s)
+    }
+    public static func /= (_ v: inout CGVector, _ s: CGFloat) {
+        v = v / s
     }
 }
 
