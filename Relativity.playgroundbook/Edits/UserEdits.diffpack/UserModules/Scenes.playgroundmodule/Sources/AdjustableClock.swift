@@ -2,8 +2,6 @@ import SpriteKit
 import Entities
 import Math
 
-let graphWidth: CGFloat = 400
-
 public class AdjustableClock: SimScene, MeterDelegate {
     
     let clockBounds: CGRect = CGRect(x: superBounds.minX, y: superBounds.minY, width: superBounds.width - graphWidth, height: superBounds.height)

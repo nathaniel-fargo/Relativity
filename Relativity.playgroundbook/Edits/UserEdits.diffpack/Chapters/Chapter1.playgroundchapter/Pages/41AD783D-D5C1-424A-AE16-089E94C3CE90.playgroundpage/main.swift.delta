@@ -36,11 +36,11 @@ struct Interaction {
 }
 var simulation = Interaction()
 
-simulation.simulationSpeed = 20
-simulation.addPhoton()
+simulation.simulationSpeed = 10
+//  simulation.addPhoton()
 </string>
 			<key>ModifiedRange</key>
-			<string>{0, 693}</string>
+			<string>{0, 697}</string>
 			<key>OriginalContent</key>
 			<string></string>
 			<key>OriginalRange</key>

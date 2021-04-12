@@ -12,7 +12,7 @@ public class LCSCNScene: SCNScene {
         directionalLight.castsShadow = true
         directionalLight.spotOuterAngle = 5
         lightNodes[0].light = directionalLight
-        lightNodes[0].position =  SCNVector3(x: 0, y: 40, z: 0)
+        lightNodes[0].position =  SCNVector3(x: 0, y: 50, z: 0)
         lightNodes[0].look(at: SCNVector3Zero)
         let ambientLight = SCNLight()
         ambientLight.type = .ambient
@@ -48,16 +48,18 @@ public class LCSCNScene: SCNScene {
         
         let timeLabelGeometry = SCNText(string: "Time", extrusionDepth: 0.1)
         timeLabelGeometry.font = UIFont(name: "Helvetica", size: 2)
+        timeLabelGeometry.flatness = 0.01
         let timeLabel = SCNNode(geometry: timeLabelGeometry)
         timeLabel.scale = SCNVector3Make(0.1, 0.1, 0.1)
-        timeLabel.position = SCNVector3Make(-0.2, 1, 0.03)
+        timeLabel.position = SCNVector3Make(-0.2, 1, 0)
         let spaceLabelGeometry = SCNText(string: "Space", extrusionDepth: 0.1)
         spaceLabelGeometry.font = UIFont(name: "Helvetica", size: 2)
+        spaceLabelGeometry.flatness = 0.01
         let spaceLabel = SCNNode(geometry: spaceLabelGeometry)
         spaceLabel.scale = SCNVector3Make(0.1, 0.1, 0.1)
         spaceLabel.position = SCNVector3Make(0.7, 0, 0)
         
-        let rocketPath = UIBezierPath(ovalIn: CGRect(x: -2, y: -1, width: 4, height: 4))
+        let rocketPath = UIBezierPath(ovalIn: CGRect(x: -2, y: -2, width: 4, height: 4))
         rocketPath.move(to: CGPoint(0, 10))
         rocketPath.addCurve(to: CGPoint(5, -2), controlPoint1: CGPoint(4, 8), controlPoint2: CGPoint(5, 3))
         rocketPath.addCurve(to: CGPoint(7, -10), controlPoint1: CGPoint(6, -2), controlPoint2: CGPoint(7, -5))
@@ -73,59 +75,45 @@ public class LCSCNScene: SCNScene {
         let rocketGeometry = SCNShape(path: rocketPath, extrusionDepth: 0.1)
         let rocketNode = SCNNode(geometry: rocketGeometry)
         rocketNode.scale = SCNVector3Make(0.05, 0.05, 0.05)
-        rocketNode.eulerAngles.x -= .pi / 2
-        rocketNode.eulerAngles.y += .pi / 2
+        rocketNode.eulerAngles.x = .pi / 2
+        rocketNode.eulerAngles.y = .pi
         rocketNode.position.y = 1
         
-        let rocketVectorGeometry = SCNGeometry(sources: [SCNGeometrySource(vertices: [
-            // Base
-            SCNVector3Make(1, 0, 1),
-            SCNVector3Make(1, 0, -1),
-            SCNVector3Make(-1, 0, -1),
-            SCNVector3Make(-1, 0, 1),
-            SCNVector3Make(1, 0, 1),
-            // Right Side
-            SCNVector3Make(1, 10, 1),
-            SCNVector3Make(1, 10, -1),
-            SCNVector3Make(1, 0, -1),
-            SCNVector3Make(1, 0, 1),
-            // Front Side
-            SCNVector3Make(1, 10, 1),
-            SCNVector3Make(-1, 10, 1),
-            SCNVector3Make(-1, 0, 1),
-            SCNVector3Make(1, 0, 1),
-            // Left Side
-            SCNVector3Make(-1, 0, 1),
-            SCNVector3Make(-1, 0, -1),
-            SCNVector3Make(-1, 10, -1),
-            SCNVector3Make(-1, 10, 1),
-            SCNVector3Make(-1, 0, 1),
-            // Back Side
-            SCNVector3Make(-1, 0, -1),
-            SCNVector3Make(1, 0, -1),
-            SCNVector3Make(1, 10, -1),
-            SCNVector3Make(-1, 10, -1),
-            // Top Side
-            SCNVector3Make(-1, 10, 1),
-            SCNVector3Make(1, 10, 1),
-            SCNVector3Make(1, 10, -1),
-            SCNVector3Make(-1, 10, -1)
-        ])], elements: nil)
-        let rocketVector = SCNNode(geometry: rocketVectorGeometry)
-        rocketVector.scale = SCNVector3Make(0.1, 0.1, 0.1)
-        rocketVector.position.y = 1
+        let rocketVectorLineGeometry = SCNBox(width: 0.05, height: 1.55, length: 0.05, chamferRadius: 0.025)
+        let rocketVectorLine = SCNNode(geometry: rocketVectorLineGeometry)
+        rocketVectorLine.position.y = 0.75
+        
+        let rocketVectorTipGeometry = SCNCone(topRadius: 0.01, bottomRadius: 0.07, height: 0.2)
+        let rocketVectorTip = SCNNode(geometry: rocketVectorTipGeometry)
+        rocketVectorTip.position.y = 1.6
         
         rocketStilt.addChildNode(rocketNode)
+        let rocketVector = SCNNode()
+        rocketVector.addChildNode(rocketVectorLine)
+        rocketVector.addChildNode(rocketVectorTip)
         rocketStilt.addChildNode(rocketVector)
         
         let floorMaterial = SCNMaterial()
-        floorMaterial.diffuse.contents = UIColor(red: 0, green: 0.5, blue: 1, alpha: 1)
+        floorMaterial.diffuse.contents = UIColor(red: 0.2, green: 0.6, blue: 1, alpha: 1)
         floorGeometry.materials = [floorMaterial]
         
         let axisMaterial = SCNMaterial()
-        axisMaterial.diffuse.contents = UIColor(red: 0.4, green: 0.4, blue: 0.4, alpha: 1)
+        axisMaterial.diffuse.contents = UIColor(red: 0.4, green: 0.4, blue: 0.4, alpha: 0.5)
         axisGeometry.materials = [axisMaterial]
-        rocketVectorGeometry.materials = [axisMaterial]
+        
+        let textMaterial = SCNMaterial()
+        textMaterial.diffuse.contents = UIColor.black
+        spaceLabelGeometry.materials = [textMaterial]
+        timeLabelGeometry.materials = [textMaterial]
+        
+        let rocketMaterial = SCNMaterial()
+        rocketMaterial.diffuse.contents = #colorLiteral(red: 0.3967612087726593, green: -0.02950986661016941, blue: -0.024995913729071617, alpha: 1.0)
+        rocketGeometry.materials = [rocketMaterial]
+        
+        let vectorMaterial = SCNMaterial()
+        vectorMaterial.diffuse.contents = #colorLiteral(red: 0.0, green: 0.33725491166114807, blue: 0.8392156958580017, alpha: 1.0)
+        rocketVectorTipGeometry.materials = [vectorMaterial]
+        rocketVectorLineGeometry.materials = [vectorMaterial]
         
         for lightNode in lightNodes {
             rootNode.addChildNode(lightNode)
@@ -140,7 +128,7 @@ public class LCSCNScene: SCNScene {
     }
     
     func setRocketRotation(to rotation: CGFloat) {
-        let rotAction = SCNAction.rotateTo(x: 0, y: 0, z: rotation, duration: 0.1)
+        let rotAction = SCNAction.rotateTo(x: 0, y: 0, z: rotation, duration: 0.3)
         rocketStilt.runAction(rotAction)
     }
     

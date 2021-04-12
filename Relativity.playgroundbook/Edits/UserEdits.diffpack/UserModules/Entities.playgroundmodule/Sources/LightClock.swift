@@ -52,12 +52,12 @@ public class LightClock {
         upperMirror.position.x = frame.minX
         tickMark.position.x = frame.midX
         
-        let collision = photon.keepOutOfRect(rect: upperMirror.frame)
+        let collision = photon.keepOutOfRect(rect: upperMirror.frame, simSpeed: simSpeed)
         if (collision != nil) {
             ticks += 1
             tickMark.text = "\(ticks)"
         }
-        photon.keepOutOfRect(rect: lowerMirror.frame)
+        let _ = photon.keepOutOfRect(rect: lowerMirror.frame, simSpeed: simSpeed)
         if frame.minX > bounds.maxX {
             frame = frame.offsetBy(dx: -bounds.width - frame.width, dy: 0)
             photon.position.x -= bounds.width + frame.width

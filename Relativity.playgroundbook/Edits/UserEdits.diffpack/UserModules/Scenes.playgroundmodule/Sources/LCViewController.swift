@@ -19,12 +19,12 @@ public class LCViewController: UIViewController, MeterDelegate {
     }
     public override func loadView() {
         super.loadView()
-        let f = view.frame
+        let f = UIScreen.main.bounds
         scnView = SCNView(frame: CGRect(x: f.minX, y: f.minY, width: f.width - graphWidth, height: f.height))
         view.addSubview(scnView)
         skView = SKView(frame: CGRect(x: f.maxX - graphWidth, y: f.minX, width: graphWidth, height: f.height))
         view.addSubview(skView)
-        skScene = LCSKScene(size: CGSize(width: f.maxX - graphWidth, height: f.height))
+        skScene = LCSKScene(size: CGSize(width: graphWidth, height: f.height))
     }
     public override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,8 +33,8 @@ public class LCViewController: UIViewController, MeterDelegate {
         scnView.defaultCameraController.interactionMode = .orbitTurntable
         scnView.defaultCameraController.inertiaEnabled  = true
         scnView.defaultCameraController.maximumVerticalAngle = 89
-        scnView.defaultCameraController.minimumVerticalAngle = -45
-        scnView.backgroundColor = .lightGray
+        scnView.defaultCameraController.minimumVerticalAngle = -1
+        scnView.backgroundColor = #colorLiteral(red: 0.07450980693101883, green: 0.21960783004760742, blue: 0.3607843220233917, alpha: 1.0)
         scnScene.sceneDidLoad()
         
         skScene.scaleMode = .aspectFit

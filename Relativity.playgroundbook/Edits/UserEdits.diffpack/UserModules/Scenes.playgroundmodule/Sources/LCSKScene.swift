@@ -21,6 +21,9 @@ class LCSKScene: SKScene {
     public override func didMove(to view: SKView) {
         addChild(meter)
     }
+    public override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        meter.touched(touchPos: touches.first!.location(in: self))
+    }
     public override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
         meter.touched(touchPos: touches.first!.location(in: self))
     }

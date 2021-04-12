@@ -75,7 +75,7 @@ public class Photon {
     
     // Collisions
     // Man this was a struggle but I did it all
-    public func keepOutOfRect(rect: CGRect) -> CollisionType? {
+    public func keepOutOfRect(rect: CGRect, simSpeed: CGFloat) -> CollisionType? {
         // check if it applies
         if !(position.x + radius > rect.minX && position.y + radius > rect.minY && position.x - radius < rect.maxX && position.y - radius < rect.maxY) {
             return nil
@@ -97,7 +97,7 @@ public class Photon {
             ((position.y <= rect.midY && position.y >= rect.minY + position.x - rect.minX) ||
             (position.y >= rect.midY && position.y <= rect.maxY - position.x + rect.minX)) {
             direction.dx = -abs(direction.dx)
-            position.x += direction.dx * 2
+            position.x += direction.dx * 2 * simSpeed
             return .left
         }
         // Right Bound:
@@ -105,7 +105,7 @@ public class Photon {
             ((position.y <= rect.midY && position.y >= rect.minY - position.x + rect.maxX) || 
             (position.y >= rect.midY && position.y <= rect.maxY + position.x - rect.maxX)) {
             direction.dx = abs(direction.dx)
-            position.x += direction.dx * 2
+            position.x += direction.dx * 2 * simSpeed
             return .right
         }
         // Upper Bound
@@ -113,7 +113,7 @@ public class Photon {
             ((position.x <= rect.midX && position.x >= rect.minX + position.y - rect.minY) ||
             (position.x >= rect.midX && position.x <= rect.maxX - position.y + rect.minY)) {
             direction.dy = -abs(direction.dy)
-            position.y += direction.dy * 2
+            position.y += direction.dy * 2 * simSpeed
             return .upper
         } 
         // Lower Bound
@@ -121,12 +121,15 @@ public class Photon {
             ((position.x <= rect.midX && position.x >= rect.minX - position.y + rect.maxY) ||
             (position.x >= rect.midX && position.x <= rect.maxX + position.y - rect.maxY)) {
             direction.dy = abs(direction.dy)
-            position.y += direction.dy * 2
+            position.y += direction.dy * 2 * simSpeed
             return .lower
         }
         return nil
     }
-    public func keepInRect(rect: CGRect) -> CollisionType? {
+    public func keepOutOfRect(rect: CGRect) -> CollisionType? {
+        return keepOutOfRect(rect: rect, simSpeed: 1)
+    }
+    public func keepInRect(rect: CGRect, simSpeed: CGFloat) -> CollisionType? {
         if position.x - radius > rect.minX && position.y - radius > rect.minY && position.x + radius < rect.maxX && position.y + radius < rect.maxY {
             return nil
         }
@@ -134,9 +137,11 @@ public class Photon {
         if position.x - radius <= rect.minX || position.x + radius >= rect.maxX {
             if position.x >= rect.midX {
                 direction.dx = -abs(direction.dx)
+                position.x += direction.dx * 2 * simSpeed
                 return .right
             } else {
                 direction.dx = abs(direction.dx)
+                position.x += direction.dx * 2 * simSpeed
                 return .left
             }
         }
@@ -144,15 +149,18 @@ public class Photon {
         if (position.y - radius <= rect.minY || position.y + radius >= rect.maxY) {
             if position.y >= rect.midY {
                 direction.dy = -abs(direction.dy)
-                position.y += direction.dy * 2
+                position.y += direction.dy * 2 * simSpeed
                 return .lower
             } else {
                 direction.dy = abs(direction.dy)
-                position.y += direction.dy * 2
+                position.y += direction.dy * 2 * simSpeed
                 return .upper
             }
         }
         return nil
+    }
+    public func keepInRect(rect: CGRect) -> CollisionType? {
+        return keepInRect(rect: rect, simSpeed: 1)
     }
     
 }
