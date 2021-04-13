@@ -131,7 +131,6 @@ public class LCSCNScene: SCNScene {
     func setRocketRotation(to rotation: CGFloat) {
         let rotAction = SCNAction.rotateTo(x: 0, y: 0, z: rotation * rotationFactor, duration: rotationTime)
         rocketStilt.runAction(rotAction)
-        print(rotation)
     }
     
 }
