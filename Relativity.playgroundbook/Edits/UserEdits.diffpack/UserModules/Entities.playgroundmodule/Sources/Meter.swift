@@ -88,6 +88,7 @@ public class Meter: SKShapeNode {
     }
     
     func updateArrow() {
-        arrow.zRotation = atan2(-vector.dx, vector.dy)
+        let action = SKAction.rotate(toAngle: atan2(-vector.dx, vector.dy), duration: 0.08)
+        arrow.run(action)
     }
 }

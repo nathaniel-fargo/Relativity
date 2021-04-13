@@ -1,4 +1,5 @@
 import SceneKit
+import Math
 
 public class LCSCNScene: SCNScene {
     
@@ -72,7 +73,7 @@ public class LCSCNScene: SCNScene {
         rocketPath.close()
         rocketPath.flatness = 0.01
         
-        let rocketGeometry = SCNShape(path: rocketPath, extrusionDepth: 0.1)
+        let rocketGeometry = SCNShape(path: rocketPath, extrusionDepth: 0.05)
         let rocketNode = SCNNode(geometry: rocketGeometry)
         rocketNode.scale = SCNVector3Make(0.05, 0.05, 0.05)
         rocketNode.eulerAngles.x = .pi / 2
@@ -128,8 +129,9 @@ public class LCSCNScene: SCNScene {
     }
     
     func setRocketRotation(to rotation: CGFloat) {
-        let rotAction = SCNAction.rotateTo(x: 0, y: 0, z: rotation, duration: 0.3)
+        let rotAction = SCNAction.rotateTo(x: 0, y: 0, z: rotation * rotationFactor, duration: rotationTime)
         rocketStilt.runAction(rotAction)
+        print(rotation)
     }
     
 }
