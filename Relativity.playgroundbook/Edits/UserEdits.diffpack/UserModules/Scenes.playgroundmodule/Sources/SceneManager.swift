@@ -4,17 +4,23 @@ import PlaygroundSupport
 
 public func instantiateViewController(for page: String) -> UIViewController {
     switch page {
-    case "bouncingLight":
-        return SimViewController(scene: BouncingLight())
-    case "clockScene":
-        return SimViewController(scene: ClockScene())
-    case "movingClock":
-        return SimViewController(scene: MovingClock())
-    case "adjustableClock":
-        return SimViewController(scene: AdjustableClock())
+    // Scene 2
+    case "lightTunnel":
+        return SimViewController(scene: LightTunnel())
+    // Scene 4
     case "lengthContraction":
         return LCViewController()
+    // Gonna rename/reuse these as something different
+    case "movingClock":
+        return SimViewController(scene: MovingClock())
+    // Scene 3
+    case "adjustableClock":
+        return SimViewController(scene: AdjustableClock())
+    // Probably won't use this
+    case "clockScene":
+        return SimViewController(scene: ClockScene())
+    // Scene 1
     default:
-        return SimViewController(scene: TestingGrounds())
+        return SimViewController(scene: BouncingLight())
     }
 }

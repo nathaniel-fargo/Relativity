@@ -2,25 +2,26 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>BaseFile</key>
+	<string>Chapters/Chapter1.playgroundchapter/Pages/Template.playgroundpage/main.swift</string>
 	<key>Diffs</key>
 	<array>
 		<dict>
 			<key>ModifiedContent</key>
 			<string>import PlaygroundSupport
-import CoreGraphics
+import UIKit
 
 // Create View
-let view = instantiateViewController(for: "test")
+let view = instantiateViewController(for: "lightTunnel")
 // Set View
 PlaygroundPage.current.liveView = view
 // Get Scene
-let simScene = (view as! SimViewController).getScene()
+let scene = (view as! SimViewController).getScene() as! SimScene
 
-// Modify Scene
-simScene.simSpeed = 20
+scene.simSpeed = 15
 </string>
 			<key>ModifiedRange</key>
-			<string>{0, 270}</string>
+			<string>{0, 261}</string>
 			<key>OriginalContent</key>
 			<string>
 </string>

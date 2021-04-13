@@ -5,30 +5,29 @@ let defaultPosition = CGPoint(0, 0)
 let defaultDirection = CGVector(1, 0)
 let defaultRadius: CGFloat = 10
 
-public class Photon {
+public class Photon: SKNode {
     
-    public var position: CGPoint
     var direction: CGVector
-    var radius: CGFloat
-    public var node: SKShapeNode
-    var emitter: SKEmitterNode
+    public let radius: CGFloat
+    var node: SKShapeNode
     
     // init
     public init(position: CGPoint?, direction: CGVector?, radius: CGFloat?, color: UIColor?) {
-        self.position = position ?? defaultPosition
+        
         self.direction = direction?.normalized(setZeroTo: defaultDirection) ?? defaultDirection
         self.radius = radius ?? defaultRadius
         self.node = SKShapeNode(circleOfRadius: self.radius)
         node.fillColor = color ?? #colorLiteral(red: 0.9960784316062927, green: 0.7960784435272217, blue: 0.24313727021217346, alpha: 1.0)
         node.lineWidth = 0
-        node.position = self.position
         
-        emitter = SKEmitterNode()
-        emitter.particleBirthRate = 1
-        emitter.particleColor = node.fillColor
-        emitter.particleSpeed = 10
-        emitter.numParticlesToEmit = 300
-        emitter.emissionAngle = 1
+        super.init()
+        
+        self.position = position ?? defaultPosition
+        addChild(node)
+    }
+
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
 
     // makes sure direction fits in mag 1
@@ -38,15 +37,10 @@ public class Photon {
     // Move position according to direction and speed
     public func move(simulationSpeed simSpeed: CGFloat) {
         position += direction * c * simSpeed
-        node.position = position
-        if(node.parent != nil  && emitter.parent == nil) {
-            node.parent!.addChild(emitter)
-        }
     }
     // Doesn't require sim speed
     public func move() {
         checkDirection()
-        
         move(simulationSpeed: 1)
     }
     // retrieve direction
