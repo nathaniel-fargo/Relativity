@@ -22,10 +22,6 @@
 		<string>Added</string>
 		<key>Chapters/Chapter1.playgroundchapter/Pages/4B2CFF21-1966-4797-AC0D-1A6BE64969F5.playgroundpage/main.swift</key>
 		<string>Modified</string>
-		<key>Chapters/Chapter1.playgroundchapter/Pages/75EFCDB9-844E-4A36-AE2E-824A68C005F7.playgroundpage/UserManifest.plist</key>
-		<string>Added</string>
-		<key>Chapters/Chapter1.playgroundchapter/Pages/75EFCDB9-844E-4A36-AE2E-824A68C005F7.playgroundpage/main.swift</key>
-		<string>Modified</string>
 		<key>Chapters/Chapter1.playgroundchapter/Pages/E7733A33-7CEE-43C5-A350-6E3854B9211B.playgroundpage/UserManifest.plist</key>
 		<string>Added</string>
 		<key>Chapters/Chapter1.playgroundchapter/Pages/E7733A33-7CEE-43C5-A350-6E3854B9211B.playgroundpage/main.swift</key>
@@ -56,17 +52,15 @@
 		<string>Added</string>
 		<key>UserModules/Scenes.playgroundmodule/Sources/BouncingLight.swift</key>
 		<string>Added</string>
-		<key>UserModules/Scenes.playgroundmodule/Sources/ClockScene.swift</key>
-		<string>Added</string>
 		<key>UserModules/Scenes.playgroundmodule/Sources/LCSCNScene.swift</key>
 		<string>Added</string>
 		<key>UserModules/Scenes.playgroundmodule/Sources/LCSKScene.swift</key>
 		<string>Added</string>
 		<key>UserModules/Scenes.playgroundmodule/Sources/LCViewController.swift</key>
 		<string>Added</string>
-		<key>UserModules/Scenes.playgroundmodule/Sources/LightTunnel.swift</key>
+		<key>UserModules/Scenes.playgroundmodule/Sources/LightClockScene.swift</key>
 		<string>Added</string>
-		<key>UserModules/Scenes.playgroundmodule/Sources/MovingClock.swift</key>
+		<key>UserModules/Scenes.playgroundmodule/Sources/LightTunnel.swift</key>
 		<string>Added</string>
 		<key>UserModules/Scenes.playgroundmodule/Sources/SceneManager.swift</key>
 		<string>Added</string>

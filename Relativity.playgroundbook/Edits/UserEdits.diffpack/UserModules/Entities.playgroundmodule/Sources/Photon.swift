@@ -17,7 +17,7 @@ public class Photon: SKNode {
         self.direction = direction?.normalized(setZeroTo: defaultDirection) ?? defaultDirection
         self.radius = radius ?? defaultRadius
         self.node = SKShapeNode(circleOfRadius: self.radius)
-        node.fillColor = color ?? #colorLiteral(red: 0.9960784316062927, green: 0.7960784435272217, blue: 0.24313727021217346, alpha: 1.0)
+        node.fillColor = color ?? #colorLiteral(red: 1.0, green: 0.8450000286102295, blue: 0.0, alpha: 1.0)
         node.lineWidth = 0
         
         super.init()

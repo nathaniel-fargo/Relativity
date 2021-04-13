@@ -6,7 +6,6 @@ public class AdjustableClock: SimScene, MeterDelegate {
     
     let clockBounds: CGRect = CGRect(x: superBounds.minX, y: superBounds.minY, width: superBounds.width - graphWidth, height: superBounds.height)
     let graphBounds: CGRect = CGRect(x: superBounds.maxX - graphWidth, y: superBounds.minY, width: graphWidth, height: superBounds.height)
-    let arcRadius: CGFloat = 150
     
     public var clock: LightClock
     let bg: SKShapeNode
@@ -23,7 +22,7 @@ public class AdjustableClock: SimScene, MeterDelegate {
         bg.fillColor = #colorLiteral(red: 0.07249999046325684, green: 0.1224999949336052, blue: 0.125, alpha: 1.0)
         bg.lineWidth = 0
         
-        meter = Meter(radius: arcRadius, vector: CGVector(0, 1), degrees: [-CGFloat.pi / 2, CGFloat.pi / 2], xAxisLabelText: "Space", yAxisLabelText: "Time")
+        meter = Meter(radius: 150, vector: CGVector(0, 1), degrees: [-CGFloat.pi / 2, CGFloat.pi / 2], xAxisLabelText: "Space", yAxisLabelText: "Time")
         meter.position = CGPoint(graphBounds.midX, graphBounds.midY)
         
         super.init()
@@ -38,7 +37,7 @@ public class AdjustableClock: SimScene, MeterDelegate {
     
     public override func didMove(to view: SKView) {
         backgroundColor = #colorLiteral(red: 0.06665531545877457, green: 0.06667457520961761, blue: 0.06665278226137161, alpha: 1.0)
-        clock.addChildren(to: self)
+        addChild(clock)
         addChild(bg)
         addChild(meter)
         for label in labels {
@@ -55,7 +54,7 @@ public class AdjustableClock: SimScene, MeterDelegate {
     }
     
     public func recieveUpdatedMeterVector(vector: CGVector) {
-        clock.velocity = vector.dx * 100
+        clock.velocity = vector.dx
     }
     
     func createLabels() {

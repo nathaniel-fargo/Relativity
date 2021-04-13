@@ -46,14 +46,14 @@ public class Meter: SKShapeNode {
         xAxisLabel.verticalAlignmentMode = .bottom
         xAxisLabel.horizontalAlignmentMode = .right
         xAxisLabel.fontName = "AppleSDGothicNeo"
-        xAxisLabel.fontSize = radius / 5
+        xAxisLabel.fontSize = radius * 0.19
         addChild(xAxisLabel)
         
         let yAxisLabel = SKLabelNode(text: yAxisLabelText ?? "Y-Speed")
         yAxisLabel.position = CGPoint(0, radius * 1.2)
         yAxisLabel.verticalAlignmentMode = .bottom
         yAxisLabel.fontName = "AppleSDGothicNeo"
-        yAxisLabel.fontSize = radius / 5
+        yAxisLabel.fontSize = radius * 0.19
         addChild(yAxisLabel)
         
         addChild(arc)
@@ -66,7 +66,7 @@ public class Meter: SKShapeNode {
     
     public func touched(touchPos: CGPoint) {
         let deltaTouch = CGVector(touchPos.x, touchPos.y) - CGVector(position.x, position.y)
-        if deltaTouch.magnitude() < radius * 2 {
+        if deltaTouch.magnitude() < radius * 1.5 {
             var theta = atan2(deltaTouch.dx, deltaTouch.dy)
             if !(theta > degrees[0] && theta < degrees[1]) {
                 if theta > 0 {

@@ -22,7 +22,7 @@ public class LightTunnel: SimScene, MeterDelegate {
         meter = Meter(radius: 150, vector: CGVector(1, 0), degrees: [-CGFloat.pi / 2, CGFloat.pi / 2], xAxisLabelText: "X-Velocity", yAxisLabelText: "Y-Speed")
         meter.position = CGPoint(graphBounds.midX, graphBounds.midY)
         
-        stuckPhotonBox = SKShapeNode(rect: CGRect(x: simBounds.width / 3 + simBounds.minX, y: simBounds.minY + simBounds.height * 7 / 12, width: simBounds.width / 3, height: simBounds.height / 4), cornerRadius: 5)
+        stuckPhotonBox = SKShapeNode(rect: CGRect(x: simBounds.width * 2 / 5 + simBounds.minX, y: simBounds.minY + simBounds.height * 7 / 12, width: simBounds.width / 5, height: simBounds.height / 4), cornerRadius: 10)
         stuckPhotonBox.lineWidth = 0
         stuckPhotonBox.fillColor = #colorLiteral(red: 0.11760873347520828, green: 0.11767067760229111, blue: 0.11760520190000534, alpha: 1.0)
         movingPhotonBox = SKShapeNode(rect: CGRect(x: simBounds.minX - 50, y: simBounds.minY + simBounds.height / 6, width: simBounds.width + 100, height: simBounds.height / 4))
@@ -30,7 +30,7 @@ public class LightTunnel: SimScene, MeterDelegate {
         movingPhotonBox.fillColor = #colorLiteral(red: 0.1176309660077095, green: 0.11765829473733902, blue: 0.11762735992670059, alpha: 1.0)
         
         stuckPhoton = Photon(position: CGPoint(stuckPhotonBox.frame.midX, stuckPhotonBox.frame.midY), direction: CGVector(0, 1), radius: nil, color: nil)
-        movingPhoton = Photon(position: CGPoint(movingPhotonBox.frame.midX, movingPhotonBox.frame.midY), direction: CGVector(2, 1), radius: nil, color: nil)
+        movingPhoton = Photon(position: CGPoint(movingPhotonBox.frame.midX, movingPhotonBox.frame.midY), direction: CGVector(0, 1), radius: nil, color: nil)
         
         super.init()
     }
@@ -70,9 +70,6 @@ public class LightTunnel: SimScene, MeterDelegate {
         } else if movingPhoton.position.x + movingPhoton.radius < simBounds.minX {
             movingPhoton.position.x = simBounds.maxX + movingPhoton.radius
         }
-        
-        let dir = movingPhoton.getDirection()
-        meter.setVector(to: CGVector(dir.dx, abs(dir.dy)))
     }
     
     public override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {

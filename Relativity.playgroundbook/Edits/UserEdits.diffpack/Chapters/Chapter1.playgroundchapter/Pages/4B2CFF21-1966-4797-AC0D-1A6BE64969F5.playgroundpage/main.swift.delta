@@ -12,11 +12,11 @@
 import CoreGraphics
 
 // Create View
-let view = instantiateViewController(for: "movingClock")
+let view = instantiateViewController(for: "lightClock")
 // Set View
 PlaygroundPage.current.liveView = view
 // Get Scene
-let scene = (view as! SimViewController).getScene() as! MovingClock
+let scene = (view as! SimViewController).getScene() as! LightClockScene
 
 struct Interaction {
     var simulationSpeed: CGFloat {
@@ -27,25 +27,17 @@ struct Interaction {
             scene.simSpeed = speed
         }
     }
-    func addClock(speed: CGFloat) {
-        scene.addClock(speed: speed)
-    }
 }
 var simulation = Interaction()
 
-// Simulation Speed
-simulation.simulationSpeed = 10
-simulation.addClock(speed: 0)
-simulation.addClock(speed: 80)
-simulation.addClock(speed: 99)
+simulation.simulationSpeed = 15
 </string>
 			<key>ModifiedRange</key>
-			<string>{0, 695}</string>
+			<string>{0, 507}</string>
 			<key>OriginalContent</key>
-			<string>
-</string>
+			<string></string>
 			<key>OriginalRange</key>
-			<string>{0, 1}</string>
+			<string>{0, 0}</string>
 		</dict>
 	</array>
 	<key>FormatVersion</key>
