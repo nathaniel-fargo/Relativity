@@ -1,13 +1,21 @@
+/*:
+
+ # Special Relativity
+ 
+ A theory developed primarily by Einstien often mentioned, and its effects known, but few people really understand why these things work.
+ 
+ In this playground I'm not going to explain special relativity from a college course perspective, instead I will attempt to give you an intuitive instead of superficial understanding of the phenomena special relativity presents: time dilation and length contraction
+ 
+ ** add to final page
+ Building up to this project, using the internet I tauht myself the principles of special relativity, and if you enjoy this project and are interested in physics, I encourage you to do the same.
+ 
+ */
+//#-hidden-code
 import PlaygroundSupport
 import UIKit
-
-// Create View
 let view = instantiateViewController(for: "default")
-// Set View
 PlaygroundPage.current.liveView = view
-// Get Scene
 let scene = (view as! SimViewController).getScene() as! BouncingLight
-
 struct Interaction {
     var simulationSpeed: CGFloat {
         get {
@@ -19,6 +27,7 @@ struct Interaction {
     }
 }
 var simulation = Interaction()
-
+//#-end-hidden-code
+//#-editable-code
 simulation.simulationSpeed = 10
-
+//#-end-editable-code

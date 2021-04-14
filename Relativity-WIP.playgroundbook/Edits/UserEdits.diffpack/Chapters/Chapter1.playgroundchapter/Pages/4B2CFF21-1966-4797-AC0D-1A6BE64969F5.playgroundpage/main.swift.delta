@@ -11,13 +11,9 @@
 			<string>import PlaygroundSupport
 import CoreGraphics
 
-// Create View
 let view = instantiateViewController(for: "lightClock")
-// Set View
 PlaygroundPage.current.liveView = view
-// Get Scene
-let scene = (view as! SimViewController).getScene() as! LightClockScene
-
+let scene = (view as! SimViewController).getScene() as! SimScene
 struct Interaction {
     var simulationSpeed: CGFloat {
         get {
@@ -33,7 +29,7 @@ var simulation = Interaction()
 simulation.simulationSpeed = 15
 </string>
 			<key>ModifiedRange</key>
-			<string>{0, 507}</string>
+			<string>{0, 459}</string>
 			<key>OriginalContent</key>
 			<string></string>
 			<key>OriginalRange</key>

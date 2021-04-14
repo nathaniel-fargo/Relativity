@@ -8,16 +8,17 @@
 	<array>
 		<dict>
 			<key>ModifiedContent</key>
-			<string>import PlaygroundSupport
+			<string>/*
+ ATTRIBUTE
+ &lt;div&gt;Icons made by &lt;a href="https://www.flaticon.com/authors/turkkub" title="turkkub"&gt;turkkub&lt;/a&gt; from &lt;a href="https://www.flaticon.com/" title="Flaticon"&gt;www.flaticon.com&lt;/a&gt;&lt;/div&gt;
+ */
+
+import PlaygroundSupport
 import CoreGraphics
 
-// Create View
-let view = instantiateViewController(for: "adjustableClock")
-// Set View
+let view = instantiateViewController(for: "rocketClock")
 PlaygroundPage.current.liveView = view
-// Get Scene
-let scene = (view as! SimViewController).getScene() as! AdjustableClock
-
+let scene = (view as! SimViewController).getScene() as! SimScene
 struct Interaction {
     var simulationSpeed: CGFloat {
         get {
@@ -30,16 +31,14 @@ struct Interaction {
 }
 var simulation = Interaction()
 
-// Simulation Speed
-simulation.simulationSpeed = 15
+simulation.simulationSpeed = 25
 </string>
 			<key>ModifiedRange</key>
-			<string>{0, 532}</string>
+			<string>{0, 663}</string>
 			<key>OriginalContent</key>
-			<string>
-</string>
+			<string></string>
 			<key>OriginalRange</key>
-			<string>{0, 1}</string>
+			<string>{0, 0}</string>
 		</dict>
 	</array>
 	<key>FormatVersion</key>

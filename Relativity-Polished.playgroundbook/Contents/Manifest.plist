@@ -7,9 +7,11 @@
 		<string>Chapter1.playgroundchapter</string>
 	</array>
 	<key>ContentIdentifier</key>
-	<string>tech.paradox42.playgrounds.relativity</string>
+	<string>com.apple.playgrounds.blank</string>
 	<key>ContentVersion</key>
 	<string>1.0</string>
+	<key>Name</key>
+	<string>Relativity</string>
 	<key>DeploymentTarget</key>
 	<string>ios-current</string>
 	<key>DevelopmentRegion</key>

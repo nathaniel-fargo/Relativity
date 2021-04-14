@@ -14,7 +14,7 @@ public class Meter: SKShapeNode {
     
     public var delegate: MeterDelegate?
     
-    public init(radius: CGFloat, vector: CGVector, degrees: [CGFloat], xAxisLabelText: String?, yAxisLabelText: String?) {
+    public init(radius: CGFloat, vector: CGVector, degrees: [CGFloat], labelText: String?, xAxisLabelText: String?, yAxisLabelText: String?) {
         self.radius = radius
         self.vector = vector.normalized()
         
@@ -23,10 +23,14 @@ public class Meter: SKShapeNode {
         self.degrees[0] = min(max(degrees[0],-.pi),0)
         self.degrees[1] = min(max(degrees[1],0),.pi)
         
+        let doLeft = self.degrees[0] != 0
+        let doRight = self.degrees[1] != 0
+        let doBottom = self.degrees[0] < -.pi / 2 || self.degrees[1] > .pi / 2
+        
         let arcPath = CGMutablePath()
         arcPath.addArc(center: CGPoint(0, 0), radius: radius, startAngle: .pi / 2 - self.degrees[1] - 0.15, endAngle: .pi / 2 - self.degrees[0] + 0.15, clockwise: false)
-        arcPath.addLines(between: [CGPoint(-radius * (self.degrees[0] == 0 ? 0.1 : 1.1), 0), CGPoint(radius * (self.degrees[1] == 0 ? 0.1 : 1.1), 0)])
-        arcPath.addLines(between: [CGPoint(0, -radius * (self.degrees[0] >= -.pi / 2 && self.degrees[1] <= .pi / 2 ? 0.1 : 1.1)), CGPoint(0, radius * 1.1)])
+        arcPath.addLines(between: [CGPoint(-radius * (doLeft ? 1.1 : 0.1), 0), CGPoint(radius * (doRight ? 1.1 : 0.1), 0)])
+        arcPath.addLines(between: [CGPoint(0, -radius * (doBottom ? 1.1 : 0.1)), CGPoint(0, radius * 1.1)])
         let arc = SKShapeNode(path: arcPath)
         arc.lineWidth = radius / 20
         
@@ -40,6 +44,21 @@ public class Meter: SKShapeNode {
         arrow.fillColor = arrow.strokeColor
         arrow.lineWidth = arrowWidth * 0.8
         arrow.lineCap = .round
+        
+        if labelText != nil {
+            let label = SKLabelNode(text: labelText!)
+            label.verticalAlignmentMode = .bottom
+            label.position = CGPoint(0, radius * 1.5)
+            label.fontSize = radius / 4
+            if doLeft && doRight {
+                label.fontSize = radius / 3
+            } else if doLeft {
+                label.position = CGPoint(-radius / 2, radius * 1.5)
+            } else if doRight {
+                label.position = CGPoint(radius / 2, radius * 1.5)
+            }
+            addChild(label)
+        }
         
         let xAxisLabel = SKLabelNode(text: xAxisLabelText ?? "X-Speed")
         xAxisLabel.position = CGPoint(radius * 0.9, radius / 15)

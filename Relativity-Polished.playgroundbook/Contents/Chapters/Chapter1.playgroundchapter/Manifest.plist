@@ -3,10 +3,8 @@
 <plist version="1.0">
 <dict>
 	<key>Name</key>
-	<string>My Playground</string>
-	<key>TemplatePageFilename</key>
-	<string>Template.playgroundpage</string>
-	<key>InitialUserPages</key>
+	<string>Relativity</string>
+	<key>Pages</key>
 	<array>
 		<string>BouncingLight.playgroundpage</string>
 		<string>LightTunnel.playgroundpage</string>

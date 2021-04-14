@@ -9,15 +9,11 @@
 		<dict>
 			<key>ModifiedContent</key>
 			<string>import PlaygroundSupport
-import UIKit
+import CoreGraphics
 
-// Create View
-let view = instantiateViewController(for: "bouncingLight")
-// Set View
+let view = instantiateViewController(for: "conclusion")
 PlaygroundPage.current.liveView = view
-// Get Scene
-let scene = (view as! SimViewController).getScene() as! BouncingLight
-
+let scene = (view as! SimViewController).getScene() as! SimScene
 struct Interaction {
     var simulationSpeed: CGFloat {
         get {
@@ -30,10 +26,10 @@ struct Interaction {
 }
 var simulation = Interaction()
 
-simulation.simulationSpeed = 10
+simulation.simulationSpeed = 30
 </string>
 			<key>ModifiedRange</key>
-			<string>{0, 501}</string>
+			<string>{0, 459}</string>
 			<key>OriginalContent</key>
 			<string></string>
 			<key>OriginalRange</key>
