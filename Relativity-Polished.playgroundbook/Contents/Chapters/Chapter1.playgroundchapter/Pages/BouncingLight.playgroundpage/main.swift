@@ -13,9 +13,9 @@
 //#-hidden-code
 import PlaygroundSupport
 import UIKit
-let view = instantiateViewController(for: "default")
+let view = instantiateViewController(for: "bouncingLight")
 PlaygroundPage.current.liveView = view
-let scene = (view as! SimViewController).getScene() as! BouncingLight
+let scene = (view as! SimViewController).getScene() as! SimSpeed
 struct Interaction {
     var simulationSpeed: CGFloat {
         get {
@@ -29,5 +29,5 @@ struct Interaction {
 var simulation = Interaction()
 //#-end-hidden-code
 //#-editable-code
-simulation.simulationSpeed = 10
+simulation.simulationSpeed = 15
 //#-end-editable-code
