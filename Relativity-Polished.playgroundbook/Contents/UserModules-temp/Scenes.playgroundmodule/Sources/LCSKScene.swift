@@ -7,7 +7,7 @@ class LCSKScene: SKScene {
     
     override init(size: CGSize) {
         
-        meter = Meter(radius: 150, vector: CGVector(1, 0), degrees: [-CGFloat.pi / 2, CGFloat.pi / 2], xAxisLabelText: "Space", yAxisLabelText: "Time")
+        meter = Meter(radius: 150, vector: CGVector(1, 0), degrees: [-CGFloat.pi / 2, CGFloat.pi / 2], labelText: "Rocket Velocity", xAxisLabelText: "Space", yAxisLabelText: "Time")
         
         super.init(size: size)
         

@@ -1,5 +1,6 @@
 import SceneKit
 import Math
+import Entities
 
 public class LCSCNScene: SCNScene {
     
@@ -60,24 +61,11 @@ public class LCSCNScene: SCNScene {
         spaceLabel.scale = SCNVector3Make(0.1, 0.1, 0.1)
         spaceLabel.position = SCNVector3Make(0.7, 0, 0)
         
-        let rocketPath = UIBezierPath(ovalIn: CGRect(x: -2, y: -2, width: 4, height: 4))
-        rocketPath.move(to: CGPoint(0, 10))
-        rocketPath.addCurve(to: CGPoint(5, -2), controlPoint1: CGPoint(4, 8), controlPoint2: CGPoint(5, 3))
-        rocketPath.addCurve(to: CGPoint(7, -10), controlPoint1: CGPoint(6, -2), controlPoint2: CGPoint(7, -5))
-        rocketPath.addLine(to: CGPoint(5, -10))
-        rocketPath.addCurve(to: CGPoint(-5, -10), controlPoint1: CGPoint(3, -3), controlPoint2: CGPoint(-3, -3))
-        rocketPath.addLine(to: CGPoint(-7, -10))
-        rocketPath.move(to: CGPoint(0, 10))
-        rocketPath.addCurve(to: CGPoint(-5, -2), controlPoint1: CGPoint(-4, 8), controlPoint2: CGPoint(-5, 3))
-        rocketPath.addCurve(to: CGPoint(-7, -10), controlPoint1: CGPoint(-6, -2), controlPoint2: CGPoint(-7, -5))
-        rocketPath.close()
-        rocketPath.flatness = 0.01
-        
-        let rocketGeometry = SCNShape(path: rocketPath, extrusionDepth: 0.05)
+        let rocketGeometry = SCNShape(path: RocketPath.rocketPath, extrusionDepth: 0.05)
         let rocketNode = SCNNode(geometry: rocketGeometry)
         rocketNode.scale = SCNVector3Make(0.05, 0.05, 0.05)
         rocketNode.eulerAngles.x = .pi / 2
-        rocketNode.eulerAngles.y = .pi
+        rocketNode.eulerAngles.y = .pi / 2
         rocketNode.position.y = 1
         
         let rocketVectorLineGeometry = SCNBox(width: 0.05, height: 1.55, length: 0.05, chamferRadius: 0.025)

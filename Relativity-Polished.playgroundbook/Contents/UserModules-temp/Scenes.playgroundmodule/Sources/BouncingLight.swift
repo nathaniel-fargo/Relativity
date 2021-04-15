@@ -17,7 +17,7 @@ public class BouncingLight: SimScene, MeterDelegate {
     
     override init() {
         
-        meter = Meter(radius: 150, vector: CGVector(1, 0), degrees: [-CGFloat.pi, CGFloat.pi], xAxisLabelText: "X-Velocity", yAxisLabelText: "Y-Velocity")
+        meter = Meter(radius: 150, vector: CGVector(1, 0), degrees: [-CGFloat.pi, CGFloat.pi], labelText: "Photon Velocity", xAxisLabelText: "X-Velocity", yAxisLabelText: "Y-Velocity")
         meter.position = CGPoint(graphBounds.midX, graphBounds.midY)
         
         photon = Photon(position: CGPoint(50, 50), direction: CGVector(1, 1), radius: nil, color: nil)
