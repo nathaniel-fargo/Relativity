@@ -59,16 +59,21 @@ public class LCSKScene: SKScene, MeterDelegate {
         } else if rocket.position.x + rocketWidth / 2 < scnBounds.minX {
             rocket.position.x = scnBounds.maxX + rocketWidth / 2
         }
-        rocket.xScale = sqrt(1 - rocketVelocity * rocketVelocity)
     }
     
     public func recieveUpdatedMeterVector(vector: CGVector) {
         meterDelegate?.recieveUpdatedMeterVector(vector: vector)
         let swap = rocketVelocity * vector.dx <= 0
+        if swap {
+            let rotAction = SKAction.rotate(toAngle: vector.dx > 0 ? 0 : .pi, duration: rotationTime)
+            rocket.run(rotAction)
+        }
+        let h = (rocketVelocity + vector.dx) / 2
+        let scaleMidAction = SKAction.scaleX(to: sqrt(1 - h * h), duration: rotationTime)
+        let scaleEndAction = SKAction.scaleX(to: sqrt(1 - rocketVelocity * rocketVelocity), duration: rotationTime)
+        let scaleAction = SKAction.sequence([scaleMidAction, scaleEndAction])
+        rocket.run(scaleAction)
         rocketVelocity = vector.dx
-        if !swap { return }
-        let rotAction = SKAction.rotate(toAngle: rocketVelocity > 0 ? 0 : .pi, duration: rotationTime)
-        rocket.run(rotAction)
     }
     public override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         meter.touched(touchPos: touches.first!.location(in: self))
