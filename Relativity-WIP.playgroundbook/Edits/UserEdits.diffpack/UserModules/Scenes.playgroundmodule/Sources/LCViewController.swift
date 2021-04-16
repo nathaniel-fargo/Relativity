@@ -4,8 +4,6 @@ import Entities
 
 public class LCViewController: UIViewController, MeterDelegate {
     
-    let graphWidth: CGFloat = 400
-    
     var scnView: SCNView!
     var scnScene = LCSCNScene()
     var skView: SKView!
@@ -19,12 +17,16 @@ public class LCViewController: UIViewController, MeterDelegate {
     }
     public override func loadView() {
         super.loadView()
+        
         let f = UIScreen.main.bounds
-        scnView = SCNView(frame: CGRect(x: f.minX, y: f.minY, width: f.width - graphWidth, height: f.height))
-        view.addSubview(scnView)
-        skView = SKView(frame: CGRect(x: f.maxX - graphWidth, y: f.minX, width: graphWidth, height: f.height))
+        let sF = CGRect(x: f.minX, y: f.minY, width: f.width - 400, height: f.height - 200)
+        
+        skView = SKView(frame: f)
         view.addSubview(skView)
-        skScene = LCSKScene(size: CGSize(width: graphWidth, height: f.height))
+        skScene = LCSKScene(size: f.size, scnBounds: sF)
+        
+        scnView = SCNView(frame: sF)
+        view.addSubview(scnView)
     }
     public override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,11 +41,14 @@ public class LCViewController: UIViewController, MeterDelegate {
         
         skScene.scaleMode = .aspectFit
         skView.presentScene(skScene)
-        
-        skScene.meter.delegate = self
+        skScene.meterDelegate = self
     }
     
     public func recieveUpdatedMeterVector(vector: CGVector) {
         scnScene.setRocketRotation(to: -asin(vector.dx))
+    }
+    
+    public func getScene() -> LCSKScene {
+        return skScene
     }
 }

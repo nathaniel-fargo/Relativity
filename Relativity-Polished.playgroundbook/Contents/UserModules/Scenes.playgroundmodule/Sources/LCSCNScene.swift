@@ -4,7 +4,7 @@ import Entities
 
 public class LCSCNScene: SCNScene {
     
-    let rocketStilt = SCNNode()
+    var rocketStilt: SCNNode!
     
     public func sceneDidLoad() {
         
@@ -34,6 +34,7 @@ public class LCSCNScene: SCNScene {
         lightNodes[3].look(at: SCNVector3Zero)
         
         let floorGeometry = SCNFloor()
+        floorGeometry.reflectivity = 0.05
         floorGeometry.reflectionFalloffEnd = 5
         floorGeometry.reflectionFalloffStart = 0
         let floorNode = SCNNode(geometry: floorGeometry)
@@ -76,10 +77,12 @@ public class LCSCNScene: SCNScene {
         let rocketVectorTip = SCNNode(geometry: rocketVectorTipGeometry)
         rocketVectorTip.position.y = 1.6
         
-        rocketStilt.addChildNode(rocketNode)
         let rocketVector = SCNNode()
         rocketVector.addChildNode(rocketVectorLine)
         rocketVector.addChildNode(rocketVectorTip)
+        
+        rocketStilt = SCNNode()
+        rocketStilt.addChildNode(rocketNode)
         rocketStilt.addChildNode(rocketVector)
         
         let floorMaterial = SCNMaterial()
@@ -117,7 +120,7 @@ public class LCSCNScene: SCNScene {
     }
     
     func setRocketRotation(to rotation: CGFloat) {
-        let rotAction = SCNAction.rotateTo(x: 0, y: 0, z: rotation * rotationFactor, duration: rotationTime)
+        var rotAction = SCNAction.rotateTo(x: 0, y: rotation < 0 ? 0 : .pi, z: rotation * rotationFactor, duration: rotationTime)
         rocketStilt.runAction(rotAction)
     }
     

@@ -9,9 +9,25 @@
 		<dict>
 			<key>ModifiedContent</key>
 			<string>import PlaygroundSupport
+import CoreGraphics
+let view = instantiateViewController(for: "lengthContraction")
+PlaygroundPage.current.wantsFullScreenLiveView = true
+PlaygroundPage.current.liveView = view
+let scene = (view as! LCViewController).getScene()
+struct Interaction {
+    var simulationSpeed: CGFloat {
+        get {
+            return scene.simSpeed
+        }
+        set (speed) {
+            scene.simSpeed = speed
+        }
+    }
+}
+var simulation = Interaction()
 </string>
 			<key>ModifiedRange</key>
-			<string>{0, 25}</string>
+			<string>{0, 472}</string>
 			<key>OriginalContent</key>
 			<string></string>
 			<key>OriginalRange</key>
@@ -19,12 +35,10 @@
 		</dict>
 		<dict>
 			<key>ModifiedContent</key>
-			<string>let view = instantiateViewController(for: "lengthContraction")
-PlaygroundPage.current.wantsFullScreenLiveView = true
-PlaygroundPage.current.liveView = view
+			<string>simulation.simulationSpeed = 15
 </string>
 			<key>ModifiedRange</key>
-			<string>{26, 156}</string>
+			<string>{473, 32}</string>
 			<key>OriginalContent</key>
 			<string></string>
 			<key>OriginalRange</key>

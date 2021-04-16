@@ -47,7 +47,7 @@ public class Conclusion: SimScene, MeterDelegate {
     }
     
     public override func didMove(to view: SKView) {
-        backgroundColor = #colorLiteral(red: 0.06666666269302368, green: 0.06666666269302368, blue: 0.06666666269302368, alpha: 1.0)
+        backgroundColor = #colorLiteral(red: 0.06665531545877457, green: 0.06667457520961761, blue: 0.06665278226137161, alpha: 1.0)
         
         let graphBG = SKShapeNode(rect: graphBounds)
         graphBG.fillColor = .black

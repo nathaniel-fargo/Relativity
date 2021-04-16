@@ -1,17 +1,35 @@
 /*:
- Time dilation is often considered a two dimensional probelem, of space and time, but the second phenomena I'll cover today, *length contraction, is much easier to visualize using two space dimensions, so I will present a 3 dimensional scene.
+ I hope you've learned something about time dilation, but now it is *time* to look at length contraction.
  
- I'll explain as I go, so please hit "Run My Code"
+ - Important: Hello there\
+ Isn't this something!
  
- First you'll notice our friend the spacetime meter in his usual position, this time controlling both our 3D scene, and our spacial representation. The 3D scene contains our 2D rocket suspended in air, which is rotated towards its velocity. It casts a shadow onto the 2D ground, which is squished as the rocket approaches high speeds.
+ - Example: Why cool\
+ isn't this neat?
  
- This is length contraction. As objects approach high speeds, they become smaller when measured by a stationary observer. Of course, just like time, anyone aboard the rocket would never notice a change. 
- 
- The rocket below shows the effects of length contraction as it moves faster.
+ - Callout: bud
+ buddy
 
 */
 //#-hidden-code
 import PlaygroundSupport
+import CoreGraphics
 let view = instantiateViewController(for: "lengthContraction")
+PlaygroundPage.current.wantsFullScreenLiveView = true
 PlaygroundPage.current.liveView = view
+let scene = (view as! LCViewController).getScene()
+struct Interaction {
+    var simulationSpeed: CGFloat {
+        get {
+            return scene.simSpeed
+        }
+        set (speed) {
+            scene.simSpeed = speed
+        }
+    }
+}
+var simulation = Interaction()
 //#-end-hidden-code
+//#-editable-code
+simulation.simulationSpeed = 15
+//#-end-editable-code
