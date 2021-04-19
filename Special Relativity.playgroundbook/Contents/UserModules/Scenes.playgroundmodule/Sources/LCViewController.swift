@@ -27,6 +27,12 @@ public class LCViewController: UIViewController, MeterDelegate {
         
         scnView = SCNView(frame: sF)
         view.addSubview(scnView)
+        
+        let dragMeLabel = UILabel(frame: CGRect(x: sF.minX, y: sF.minY + 80, width: sF.width, height: 20))
+        dragMeLabel.text = "Drag Me!"
+        dragMeLabel.textAlignment = .center
+        dragMeLabel.textColor = #colorLiteral(red: 0.9999018311500549, green: 1.0, blue: 0.9998798966407776, alpha: 0.49999999999999983)
+        view.addSubview(dragMeLabel)
     }
     public override func viewDidLoad() {
         super.viewDidLoad()

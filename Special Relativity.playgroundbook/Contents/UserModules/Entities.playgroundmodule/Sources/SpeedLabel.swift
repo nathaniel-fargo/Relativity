@@ -8,7 +8,7 @@ public class SpeedLabel: SKNode {
         self.subject = subject
         labelNode = SKLabelNode(text: "The \(self.subject) is not moving")
         labelNode.fontColor = .white
-        labelNode.fontSize = 30
+        labelNode.fontSize = 20
         labelNode.verticalAlignmentMode = .center
         labelNode.fontName = "Avenir-Heavy"
         labelNode.position.y += 10
@@ -32,23 +32,21 @@ public class SpeedLabel: SKNode {
             speedText = " is not moving"
         case 0.01...0.03:
             speedText = " is moving at spaceship speeds"
-        case 0.03...0.1:
+        case 0.03...0.2:
             speedText = " is faster than the fastest rocket"
-        case 0.1...0.3:
+        case 0.2...0.4:
             speedText = " is going \(round(vel * 3000000) / 10) km/sec"
-        case 0.3...0.45:
-            speedText = " is going superfast"
-        case 0.45...0.55:
+        case 0.4...0.55:
             speedText = " travelling at half lightspeed"
         case 0.55...0.7:
             speedText = " is zooming"
-        case 0.7...0.8:
+        case 0.7...0.9:
             speedText = "is going \(round(vel * 1000) / 10)% of lightspeed"
-        case 0.8...0.92:
+        case 0.9...0.96:
             speedText = "'s speed is impractical!"
-        case 0.92...0.98:
+        case 0.96...0.99:
             speedText = "'s speed is improbable!"
-        case 0.98..<1:
+        case 0.99..<1:
             speedText = "'s speed is (practically) impossible!"
         case 1:
             speedText = " is traveling at the speed of light"

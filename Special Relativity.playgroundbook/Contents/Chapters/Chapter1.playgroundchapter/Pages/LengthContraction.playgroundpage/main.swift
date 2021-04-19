@@ -7,7 +7,7 @@
  - Example: Why cool\
  isn't this neat?
  
- - Callout: bud
+ - Callout(bud)
  buddy
 
 */
@@ -29,6 +29,7 @@ struct Interaction {
     }
 }
 var simulation = Interaction()
+PlaygroundPage.current.assessmentStatus = .pass(message: "Feel free to interact with this scene to see what I mean, if you want, [click here](Length%20Contraction) to go back to explanations")
 //#-end-hidden-code
 //#-editable-code
 simulation.simulationSpeed = 15

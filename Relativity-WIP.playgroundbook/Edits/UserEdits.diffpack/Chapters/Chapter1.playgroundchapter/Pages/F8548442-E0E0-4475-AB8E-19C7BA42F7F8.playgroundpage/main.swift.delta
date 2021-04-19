@@ -25,9 +25,10 @@ struct Interaction {
     }
 }
 var simulation = Interaction()
+PlaygroundPage.current.assessmentStatus = .pass(message: "Feel free to interact with this scene to see what I mean, if you want, [click here](Length%20Contraction) to go back to explanations")
 </string>
 			<key>ModifiedRange</key>
-			<string>{0, 472}</string>
+			<string>{0, 665}</string>
 			<key>OriginalContent</key>
 			<string></string>
 			<key>OriginalRange</key>
@@ -38,7 +39,7 @@ var simulation = Interaction()
 			<string>simulation.simulationSpeed = 15
 </string>
 			<key>ModifiedRange</key>
-			<string>{473, 32}</string>
+			<string>{666, 32}</string>
 			<key>OriginalContent</key>
 			<string></string>
 			<key>OriginalRange</key>

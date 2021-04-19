@@ -57,6 +57,7 @@ public class Meter: SKShapeNode {
             } else if doRight {
                 label.position = CGPoint(radius / 2, radius * 1.5)
             }
+            label.fontName = "Avenir-Book"
             addChild(label)
         }
         
