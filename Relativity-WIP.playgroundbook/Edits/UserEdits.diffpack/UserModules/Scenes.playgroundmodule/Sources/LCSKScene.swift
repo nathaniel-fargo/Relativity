@@ -12,8 +12,10 @@ public class LCSKScene: SKScene, MeterDelegate {
     var rocket: SKNode
     var rocketVelocity: CGFloat = 0
     var rocketWidth: CGFloat = 200
+    
     var meter: Meter
     public var meterDelegate: MeterDelegate?
+    var speedLabel: SpeedLabel
     
     init(size: CGSize, scnBounds: CGRect) {
         
@@ -28,6 +30,7 @@ public class LCSKScene: SKScene, MeterDelegate {
         rocket.addChild(rocketPath)
         
         meter = Meter(radius: 150, vector: CGVector(1, 0), degrees: [-CGFloat.pi / 2, CGFloat.pi / 2], labelText: "Rocket Velocity", xAxisLabelText: "Space", yAxisLabelText: "Time")
+        speedLabel = SpeedLabel(subject: "rocket", width: self.scnBounds.width)
         
         super.init(size: size)
     }
@@ -42,6 +45,7 @@ public class LCSKScene: SKScene, MeterDelegate {
         meter.position = CGPoint(graphBounds.midX, graphBounds.midY)
         meter.delegate = self
         rocket.position = CGPoint(scnBounds.midX, (graphBounds.maxY - scnBounds.maxY) / 2)
+        speedLabel.position = rocket.position
         
         let bg = SKShapeNode(rect: graphBounds)
         bg.fillColor = .black
@@ -50,6 +54,7 @@ public class LCSKScene: SKScene, MeterDelegate {
         addChild(rocket)
         addChild(bg)
         addChild(meter)
+        addChild(speedLabel)
     }
     
     public override func update(_ currentTime: TimeInterval) {
@@ -63,16 +68,20 @@ public class LCSKScene: SKScene, MeterDelegate {
     
     public func recieveUpdatedMeterVector(vector: CGVector) {
         meterDelegate?.recieveUpdatedMeterVector(vector: vector)
+        speedLabel.updateWithVelocity(of: vector.dx)
+        
         let swap = rocketVelocity * vector.dx <= 0
         if swap {
             let rotAction = SKAction.rotate(toAngle: vector.dx > 0 ? 0 : .pi, duration: rotationTime)
             rocket.run(rotAction)
         }
+        
         let h = (rocketVelocity + vector.dx) / 2
         let scaleMidAction = SKAction.scaleX(to: sqrt(1 - h * h), duration: rotationTime)
-        let scaleEndAction = SKAction.scaleX(to: sqrt(1 - rocketVelocity * rocketVelocity), duration: rotationTime)
+        let scaleEndAction = SKAction.scaleX(to: sqrt(1 - vector.dx * vector.dx), duration: rotationTime)
         let scaleAction = SKAction.sequence([scaleMidAction, scaleEndAction])
         rocket.run(scaleAction)
+        
         rocketVelocity = vector.dx
     }
     public override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {

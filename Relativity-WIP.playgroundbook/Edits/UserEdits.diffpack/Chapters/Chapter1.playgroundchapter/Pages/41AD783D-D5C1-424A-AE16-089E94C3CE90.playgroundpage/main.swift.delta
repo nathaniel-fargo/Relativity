@@ -30,7 +30,7 @@ struct Interaction {
 }
 var simulation = Interaction()
 
-simulation.simulationSpeed = 10
+simulation.simulationSpeed = 20
 </string>
 			<key>ModifiedRange</key>
 			<string>{0, 501}</string>

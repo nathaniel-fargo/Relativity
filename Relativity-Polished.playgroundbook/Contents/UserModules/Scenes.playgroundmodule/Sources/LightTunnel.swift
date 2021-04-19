@@ -19,7 +19,7 @@ public class LightTunnel: SimScene, MeterDelegate {
     
     override init() {
         
-        meter = Meter(radius: 150, vector: CGVector(1, 0), degrees: [-CGFloat.pi / 2, CGFloat.pi / 2], labelText: "Photon Velocity", xAxisLabelText: "X-Velocity", yAxisLabelText: "Y-Speed")
+        meter = Meter(radius: meterRadius, vector: CGVector(1, 0), degrees: [-CGFloat.pi / 2, CGFloat.pi / 2], labelText: "Photon Velocity", xAxisLabelText: "X-Velocity", yAxisLabelText: "Y-Speed")
         meter.position = CGPoint(graphBounds.midX, graphBounds.midY)
         
         stuckPhotonBox = SKShapeNode(rect: CGRect(x: simBounds.width * 2 / 5 + simBounds.minX, y: simBounds.minY + simBounds.height * 7 / 12, width: simBounds.width / 5, height: simBounds.height / 4), cornerRadius: 10)

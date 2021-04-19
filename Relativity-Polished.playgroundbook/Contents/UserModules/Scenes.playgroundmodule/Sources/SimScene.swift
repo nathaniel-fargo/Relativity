@@ -1,7 +1,6 @@
 
 import SpriteKit
-import GameKit
-import PlaygroundSupport
+import Math
 
 public class SimScene: SKScene {
     
@@ -11,7 +10,7 @@ public class SimScene: SKScene {
         fatalError("init(coder:) has not been implemented")
     }
     override init() {
-        super.init(size: UIScreen.main.bounds.size)
+        super.init(size: superBounds.size)
         self.backgroundColor = UIColor.white
     }
     public override func didMove(to view: SKView) {

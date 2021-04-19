@@ -10,6 +10,7 @@
 			<key>ModifiedContent</key>
 			<string>import PlaygroundSupport
 import CoreGraphics
+import UIKit
 
 let view = instantiateViewController(for: "lightClock")
 PlaygroundPage.current.liveView = view
@@ -27,13 +28,17 @@ struct Interaction {
 var simulation = Interaction()
 
 simulation.simulationSpeed = 15
+
+print(UIScreen.main.nativeBounds)
+print(UIScreen.main.bounds)
 </string>
 			<key>ModifiedRange</key>
-			<string>{0, 459}</string>
+			<string>{0, 535}</string>
 			<key>OriginalContent</key>
-			<string></string>
+			<string>
+</string>
 			<key>OriginalRange</key>
-			<string>{0, 0}</string>
+			<string>{0, 1}</string>
 		</dict>
 	</array>
 	<key>FormatVersion</key>

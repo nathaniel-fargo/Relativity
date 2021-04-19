@@ -7,24 +7,27 @@ public class LightClockScene: SimScene, MeterDelegate {
     let simBounds = CGRect(x: superBounds.minX, y: superBounds.minY, width: superBounds.width - graphWidth, height: superBounds.height)
     let graphBounds = CGRect(x: superBounds.maxX - graphWidth, y: superBounds.minY, width: graphWidth, height: superBounds.height)
     
-    let meterRadius: CGFloat
+    let stillClock: LightClock
+    let movingClock: LightClock
+    
     let photonMeter: Meter
     let clockMeter: Meter
     
-    let stillClock: LightClock
-    let movingClock: LightClock
+    let clockSpeedLabel: SpeedLabel
     
     public override init() {
         
         stillClock = LightClock(frame: CGRect(x: simBounds.minX + simBounds.width * 2 / 5, y: simBounds.minY + simBounds.height * 7 / 12 - defaultMirrorHeight, width: simBounds.width / 5, height: simBounds.height / 4 + defaultMirrorHeight * 2), mirrorHeight: defaultMirrorHeight, photonRadius: nil, mirrorColor: #colorLiteral(red: 0.5215686559677124, green: 0.5215686559677124, blue: 0.5215686559677124, alpha: 1.0))
         movingClock = LightClock(frame: CGRect(x: simBounds.minX + simBounds.width * 2 / 5 , y: simBounds.minY + simBounds.height / 6 - defaultMirrorHeight, width: simBounds.width / 5, height: simBounds.height / 4 + defaultMirrorHeight * 2), mirrorHeight: defaultMirrorHeight, photonRadius: nil, mirrorColor: #colorLiteral(red: 0.0, green: 0.33725491166114807, blue: 0.8392156958580017, alpha: 1.0))
         
-        meterRadius = min(graphBounds.width / 3, graphBounds.height / 6)
         photonMeter = Meter(radius: meterRadius, vector: CGVector(1, 2), degrees: [-CGFloat.pi / 2, CGFloat.pi / 2], labelText: "Photon Velocity", xAxisLabelText: "X-Velocity", yAxisLabelText: "Y-Speed")
         clockMeter = Meter(radius: meterRadius, vector: CGVector(1, 2), degrees: [-CGFloat.pi / 2, CGFloat.pi / 2], labelText: "Clock Velocity", xAxisLabelText: "Space", yAxisLabelText: "Time")
         
+        clockSpeedLabel = SpeedLabel(subject: "clock", width: simBounds.width)
+        
         photonMeter.position = CGPoint(graphBounds.midX, graphBounds.maxY - meterRadius * 2.5)
         clockMeter.position = CGPoint(graphBounds.midX, graphBounds.maxY - meterRadius * 5.5)
+        clockSpeedLabel.position = CGPoint(simBounds.midX, simBounds.midY)
         
         super.init()
         
@@ -59,6 +62,7 @@ public class LightClockScene: SimScene, MeterDelegate {
         addChild(graphBG)
         addChild(photonMeter)
         addChild(clockMeter)
+        addChild(clockSpeedLabel)
         
     }
     
@@ -71,6 +75,7 @@ public class LightClockScene: SimScene, MeterDelegate {
         movingClock.velocity = vector.dx
         photonMeter.setVector(to: vector)
         clockMeter.setVector(to: vector)
+        clockSpeedLabel.updateWithVelocity(of: vector.dx)
     }
     
     public override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {

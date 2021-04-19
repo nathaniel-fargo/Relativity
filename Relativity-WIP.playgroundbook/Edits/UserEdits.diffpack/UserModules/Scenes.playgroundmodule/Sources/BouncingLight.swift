@@ -17,15 +17,15 @@ public class BouncingLight: SimScene, MeterDelegate {
     
     override init() {
         
-        meter = Meter(radius: 150, vector: CGVector(1, 0), degrees: [-CGFloat.pi, CGFloat.pi], labelText: "Photon Velocity", xAxisLabelText: "X-Velocity", yAxisLabelText: "Y-Velocity")
+        meter = Meter(radius: meterRadius, vector: CGVector(1, 0), degrees: [-CGFloat.pi, CGFloat.pi], labelText: "Photon Velocity", xAxisLabelText: "X-Velocity", yAxisLabelText: "Y-Velocity")
         meter.position = CGPoint(graphBounds.midX, graphBounds.midY)
         
         photon = Photon(position: CGPoint(50, 50), direction: CGVector(1, 1), radius: nil, color: nil)
         
         // do stuff up here
         while rects.count < rectsCount {
-            let w: CGFloat = Random(min: 50, max: 150)
-            let h: CGFloat = Random(min: 50, max: 150)
+            let w: CGFloat = Random(min: simBounds.width / 12, max: simBounds.width / 6)
+            let h: CGFloat = Random(min: simBounds.height / 12, max: simBounds.height / 6)
             let newRectRect = CGRect(x: Random(min: simBounds.minX, max: simBounds.maxX - w), y: Random(min: simBounds.minY, max: simBounds.maxY - h), width: w, height: h)
             var passesOverlapTest = true
             for var rect in rects {

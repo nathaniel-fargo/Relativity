@@ -17,15 +17,15 @@ public class BouncingLight: SimScene, MeterDelegate {
     
     override init() {
         
-        meter = Meter(radius: 150, vector: CGVector(1, 0), degrees: [-CGFloat.pi, CGFloat.pi], labelText: "Photon Velocity", xAxisLabelText: "X-Velocity", yAxisLabelText: "Y-Velocity")
+        meter = Meter(radius: meterRadius, vector: CGVector(1, 0), degrees: [-CGFloat.pi, CGFloat.pi], labelText: "Photon Velocity", xAxisLabelText: "X-Velocity", yAxisLabelText: "Y-Velocity")
         meter.position = CGPoint(graphBounds.midX, graphBounds.midY)
         
         photon = Photon(position: CGPoint(50, 50), direction: CGVector(1, 1), radius: nil, color: nil)
         
         // do stuff up here
         while rects.count < rectsCount {
-            let w: CGFloat = Random(min: 50, max: 150)
-            let h: CGFloat = Random(min: 50, max: 150)
+            let w: CGFloat = Random(min: simBounds.width / 12, max: simBounds.width / 6)
+            let h: CGFloat = Random(min: simBounds.height / 12, max: simBounds.height / 6)
             let newRectRect = CGRect(x: Random(min: simBounds.minX, max: simBounds.maxX - w), y: Random(min: simBounds.minY, max: simBounds.maxY - h), width: w, height: h)
             var passesOverlapTest = true
             for var rect in rects {
@@ -49,8 +49,8 @@ public class BouncingLight: SimScene, MeterDelegate {
     }
     
     public override func didMove(to view: SKView) {
-        backgroundColor = #colorLiteral(red: 0.06665531545877457, green: 0.06667457520961761, blue: 0.06665278226137161, alpha: 1.0)
-        
+        backgroundColor = #colorLiteral(red: 0.10697368532419205, green: 0.12205220013856888, blue: 0.16004854440689087, alpha: 1.0)
+        #colorLiteral(red: 0.2705882489681244, green: 0.33725491166114807, blue: 0.4156862497329712, alpha: 1.0)
         let graphBG = SKShapeNode(rect: graphBounds)
         graphBG.fillColor = .black
         addChild(graphBG)

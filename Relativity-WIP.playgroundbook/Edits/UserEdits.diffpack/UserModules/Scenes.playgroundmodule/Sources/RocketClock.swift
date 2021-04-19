@@ -10,6 +10,8 @@ public class RocketClock: SimScene, MeterDelegate {
     let meterRadius: CGFloat
     
     let rocketMeter: Meter
+    let rocketSpeedLabel: SpeedLabel
+    
     let rocket: SKNode
     let rocketWidth: CGFloat = 200
     let rocketClock: TimeClock
@@ -22,6 +24,7 @@ public class RocketClock: SimScene, MeterDelegate {
         
         meterRadius = graphBounds.width / 2
         rocketMeter = Meter(radius: meterRadius, vector: CGVector(0, 1), degrees: [0, CGFloat.pi / 2], labelText: "Rocket Velocity", xAxisLabelText: "Speed", yAxisLabelText: "Time")
+        rocketSpeedLabel = SpeedLabel(subject: "rocket", width: simBounds.width)
         
         rocket = SKNode()
         let rocketPath = SKShapeNode(path: RocketPath.rocketPath.cgPath)
@@ -53,11 +56,11 @@ public class RocketClock: SimScene, MeterDelegate {
         graphBG.fillColor = .black
         graphBG.lineWidth = 0
         
-        rocket.position = CGPoint(simBounds.midX, simBounds.minY + simBounds.height * 7 / 24)
-        
         rocketMeter.position = CGPoint(graphBounds.midX - meterRadius / 2, graphBounds.midY)
         rocketMeter.delegate = self
+        rocketSpeedLabel.position = CGPoint(simBounds.midX, simBounds.midY)
         
+        rocket.position = CGPoint(simBounds.midX, simBounds.minY + simBounds.height * 7 / 24)
         earth.position = CGPoint(simBounds.midX, simBounds.minY + simBounds.height * 17 / 24)
         
         addChild(rocket)
@@ -65,6 +68,7 @@ public class RocketClock: SimScene, MeterDelegate {
         
         addChild(graphBG)
         addChild(rocketMeter)
+        addChild(rocketSpeedLabel)
         
     }
     
@@ -81,6 +85,7 @@ public class RocketClock: SimScene, MeterDelegate {
     
     public func recieveUpdatedMeterVector(vector: CGVector) {
         rocketVelocity = vector.dx
+        rocketSpeedLabel.updateWithVelocity(of: vector.dx)
     }
     
     public override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {

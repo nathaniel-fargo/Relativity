@@ -2,9 +2,13 @@ import UIKit
 
 public let c: CGFloat = 1
 
-public let superBounds = UIScreen.main.bounds
+let nativeBounds = UIScreen.main.nativeBounds
+let mainBounds = UIScreen.main.bounds
+public let superBounds = CGRect(x: 0, y: 0, width: nativeBounds.height / 2, height: nativeBounds.width)
 
-public let graphWidth: CGFloat = 400
+public let graphWidth: CGFloat = superBounds.width > superBounds.height ? superBounds.width / 3 : superBounds.width / 2
+
+public let meterRadius: CGFloat = graphWidth / 2.5
 
 public let rotationTime: TimeInterval = 0.1
 

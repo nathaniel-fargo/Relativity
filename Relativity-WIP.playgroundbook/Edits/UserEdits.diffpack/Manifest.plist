@@ -44,6 +44,8 @@
 		<string>Added</string>
 		<key>UserModules/Entities.playgroundmodule/Sources/RocketPath.swift</key>
 		<string>Added</string>
+		<key>UserModules/Entities.playgroundmodule/Sources/SpeedLabel.swift</key>
+		<string>Added</string>
 		<key>UserModules/Entities.playgroundmodule/Sources/TimeClock.swift</key>
 		<string>Added</string>
 		<key>UserModules/Math.playgroundmodule/Sources/CGPoint.swift</key>

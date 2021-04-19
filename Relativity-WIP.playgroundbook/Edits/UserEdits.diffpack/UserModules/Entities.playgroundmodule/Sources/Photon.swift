@@ -3,7 +3,7 @@ import Math
 
 let defaultPosition = CGPoint(0, 0)
 let defaultDirection = CGVector(1, 0)
-let defaultRadius: CGFloat = 10
+let defaultRadius: CGFloat = sqrt(superBounds.width * superBounds.height) / (100)
 
 public class Photon: SKNode {
     
