@@ -2,17 +2,29 @@
 
  # Special Relativity
  
- A theory developed primarily by Einstien often mentioned, and its effects known, but few people really understand why these things work.
+ My favorite theory in physics, it describes the behaviour and effects of moving at hyperspeeds, such as future spaceships and light particles.
  
- In this playground I'm not going to explain special relativity from a college course perspective, instead I will attempt to give you an intuitive understanding of the phenomena special relativity presents: *time dilation* and *length contraction*
+ ## Core Concepts
  
- Special Relativity is built around the postulate that *the speed of light will always been measured the same,* (in a vaccum) regardless of whether you are on a planet travelling at thousands of miles per hour, or floating around space it is a universal constant. This means that terms like time, space, and energy are not actually constants, and instead bend to their speed.
+ Although special relativity has a broad range of phenomena, I'll be exploring the two most interesting
+ - **Time Dilation**
+ - **Length Contraction**
  
- Hit "Run Code" if you haven't already.
+  - Important:
+     While I hope I can explain everything through visuals, it is helpful to understand the following
+     - **Speed of Light is a Constant:** Meaning light will always travel away at the same speed, even if you chase after it
+     - **Velocity:** a value representing motion, in single or multiple dimensions. In this program all velocities will be at a constant speed (the speed of light), but change direction.
  
- To start off with this page will show you a light particle, signifcantly slowed down so we can observe it. This particle will *always maintain the same speed,* though its direction will change. Feel free to drag your finger around that vector and move the light particle around.
+ Hit **"Run My Code"** if you haven't already.
  
- Once you are satisfied with this idea, please move on to the next page.
+ ## On This Page
+ 
+ In this page (and the rest) we have slowed down the speed of light so you can watch photons move around. We also give you control of the *velocity* of the photon, which will attempt to bounce out of control.
+ 
+  - Note:
+     Make sure you drag your finger around the meter shown to the right to move the photon around. It won't stop for you though!
+ 
+ Enjoy!
  
  */
 //#-hidden-code
@@ -20,7 +32,7 @@ import PlaygroundSupport
 import UIKit
 let view = instantiateViewController(for: "bouncingLight")
 PlaygroundPage.current.liveView = view
-let scene = (view as! SimViewController).getScene() as! SimSpeed
+let scene = (view as! SimViewController).getScene() as! SimScene
 struct Interaction {
     var simulationSpeed: CGFloat {
         get {
