@@ -1,14 +1,16 @@
 /*:
- I hope you've learned something about time dilation, but now it is *time* to look at length contraction.
+ # Length Contraction
  
- - Important: Hello there\
- Isn't this something!
+ After time dilation we move on to length contraction. Remember that extra dimension **spacetime?** We can't ever see it, but it does impact how we see our world. In fact the shadow the higher dimensional version casts is what we see and measure.
  
- - Example: Why cool\
- isn't this neat?
+ Objects also rotate perpendicular to their velocity through **spacetime,** which warps their shadow cast onto spacial dimensions. As you increase the velocity through space, this shadow warps more and more, squishing into nothigness as it approaches the speed of light. This is length contraction.
  
- - Callout(bud)
- buddy
+ ## On this Page
+ **Wait!** don't "Run My Code" quite yet. On this page I will extend our meter to a *third dimension,* (two space dimensions, one time dimension). This way it will cast a two dimensional shadow which represents what can be seen and measured.
+ 
+ Now **"Run My Code"** and come back here if you get confused
+ 
+ Or go on to the [next page](@next)
 
 */
 //#-hidden-code

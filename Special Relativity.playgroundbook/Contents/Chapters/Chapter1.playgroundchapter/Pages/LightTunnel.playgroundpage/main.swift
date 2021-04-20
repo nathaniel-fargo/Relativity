@@ -1,15 +1,21 @@
 /*:
- First we will explore the first major phenomena: *time dilation.* many people have heard of this idea, that as you approach the speed of light, time slows down for you, and this is correct, but you won't notice it, because our perception of how we move through time is governed by the rate we move through time. Instead, a stationary observer (someone who is not moving), will notice our clocks are ticking slower, and our bodies not aging as quickly. 
+ # Time Dilation
  
- Go ahead and "Run My Code"
+ The first, and more well know, phenomena we shall explore today. To start with, just imagine two photons, bouncing around, always at the same speed.
  
- Here we introduce a second light particle, one that maintains its simple bouncing motion, and a second one that you can interact with.
+ Now stop imagining and just **"Run My Code"** to see what I mean
  
- Instead of having our velocity meter bounce all around, I've adjusted the program to have the y-axis represent speed (motion without direction), and keep the x-axis on velocity (speed with direction). The particle will now also loop once it passes through the endpoints.
+ ## On this Page
+
+ Now our velocity meter only has control over one photon, the other photon will remain a *reference point.* This meter won't bounce around like the last one did, to simplify the experiment.
  
- Once again, both particles are traveling at the same speed, all the time, no matter what you are doing.
+ - Note:
+     Drag your finger around the blue meter to change the lower photon's *velocity*!
+
+ Play around with our friendly two photons, and remember that they always travel at identical speeds.
  
- After you've explored this page, please move on
+ [Move on](@next)
+ 
  */
 //#-hidden-code
 import PlaygroundSupport

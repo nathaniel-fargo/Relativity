@@ -1,13 +1,22 @@
 /*:
- In order to measure time dilation, we need to keep track of time. To do this we will use an special clock, a two mirror light clock. This keeps track of time by counting how many times the light beam bounces between the two mirrors.
+
+ # Time Dilation
  
- Go ahead and hit "Run My Code" to see what I mean. Don't forget to move the meter!
+ In order to measure something like **Time Dilation**, wee need to keep track of time. To do this we'll use our trusty photons to make a light clock. We'll use our photons from the last page, and just keep track of the rate they bounce for a unit of time.
  
- In this page we use an almost identical setup, but we add in clocks to keep track of time. We keep the previous meter to track the photon's velocity, but we add in a second meter to track the clocks velocity through spacetime.
+ To see what I mean, hit **"Run My Code"**
  
- Spacetime represents another dimension of our universe, not a spacial dimension, but a time dimension. We can observe that the faster the clock travels through space, the slower it travels through time. Thus, *the clock is always traveling through spacetime at the same speed.* The faster it travels through space, the slower it travels through time, just like how the faster light goes one way, the slower it goes in a different way.
+ ## On This Page
  
- Please move on to the next page to review this idea.
+ Here we have two clocks, and two meters, but both of these meters control the same clock. Why? I wanted to show that that the velocity of the **photon** through **space** is the same as the velocity of the **clock** through **spacetime.**
+
+ - Important:
+     Wait what, spacetime? That's right, time is so important to relativity, that we **add another dimension** that represents time passed, or *proper time.*
+ 
+ Notice how the clock's ticks become slower the faster it goes? That's time dilation: "faster objects experience less time"
+ 
+ After that sinks in go to the [next page](@next)
+ 
  */
 //#-hidden-code
 import PlaygroundSupport

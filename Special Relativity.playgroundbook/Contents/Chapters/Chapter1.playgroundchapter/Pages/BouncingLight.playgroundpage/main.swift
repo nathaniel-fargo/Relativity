@@ -19,12 +19,14 @@
  
  ## On This Page
  
- In this page (and the rest) we have slowed down the speed of light so you can watch photons move around. We also give you control of the *velocity* of the photon, which will attempt to bounce out of control.
+ On this page (and the rest) we have slowed down the speed of light so you can watch photons move around. We also give you control of the *velocity* of the photon, which will attempt to bounce out of control.
  
   - Note:
      Make sure you drag your finger around the meter shown to the right to move the photon around. It won't stop for you though!
  
- Enjoy!
+ I hope you enjoy! 
+ 
+ Move on to the [next page](@next)
  
  */
 //#-hidden-code

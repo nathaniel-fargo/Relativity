@@ -1,13 +1,17 @@
 /*:
- One question that often gets asked is, "Why can't anything go faster than the speed of light?" I'd like to focus on one specific answer to this, its because all particles are always travelling at the speed of light through spacetime. This means that just like the meters we've been using to track velocity suggest, the faster you move through space, the slower you move through time, because they are both linked, and as mentioned before, not a constant.
+ # Time Dilation
+ I'll keep it short in this page, but turns out objects, just like light, have a constant velocity through our universe, as defined by the speed of light. Light generally travels primarily through space, while planets and ordinary objects travel quickly through time.
  
- In this page I'll just quickly demonstrate that all clocks, be it biological, mechanical, light, or atomic clocks, they all slow down when they speed up.
+ You know it, **"Run My Code"**
  
- Go ahead and hit "Run My Code."
+ ## On This Page
+ We have replaced our *light clocks* with normal clocks, and put one on a rocket, where we can observe the very same effects! Just like the last page, I also add a descriptive tag to give you some reference of the speeds we are dealing with here
  
- In this page I simply place a clock on a rocket and watch as time dilation occurs as space speed changes.
- 
- The rocket is the original work of me, but credit goes to !(turkkub)[https://www.flaticon.com/authors/turkkub] from !(flaticon.com)[https://www.flaticon.com] for the wonderful earth image.
+ - Callout(Credits):
+     The rocket is the original work of me, but credit goes to [turkkub](https://www.flaticon.com/authors/turkkub) from [flaticon.com](https://www.flaticon.com) for the wonderful earth image.
+  
+  Move on to the [next page](@next)
+  
  */
 
 //#-hidden-code
