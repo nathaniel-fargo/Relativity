@@ -28,8 +28,10 @@ public class SpeedLabel: SKNode {
         let vel = abs(velocity)
         var speedText: String!
         switch vel {
-        case 0...0.01:
+        case 0...0.001:
             speedText = " is not moving"
+        case 0.001...0.01:
+            speedText = " is moving slowly"
         case 0.01...0.03:
             speedText = " is moving at spaceship speeds"
         case 0.03...0.2:
