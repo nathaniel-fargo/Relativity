@@ -6,10 +6,10 @@
  For the last page, **"Run My Code"**
  
  - Callout(Review):
-     Let's review the two phenomena we've looked over
+     Let's review the two phenomena we've looked over:
      1. **Time Dilation:** when objects go super fast, they experience less time than a stationary object
      2. **Length Contraction:** when objects go fast, they are measured to be shrunk down
-     Nether of these effects are observed by the object, e.g. the object will think time is normal and will not see itself squish down.
+     Nether of these effects are observed by the object, e.g. the object will think time is normal and will not see itself squish down
  
  ## Conclusion
  Thanks for making it all the way here! It means a lot that you are checking out something I spent so much time working on. Feel free to read more below, but it certainly isn't necessary.

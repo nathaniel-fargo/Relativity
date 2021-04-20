@@ -2,7 +2,7 @@
  # Time Dilation
  I'll keep it short in this page, but turns out objects, just like light, have a constant velocity through our universe, as defined by the speed of light. Light generally travels primarily through space, while planets and ordinary objects travel quickly through time.
  
- You know it, **"Run My Code"**
+ You guessed it, run **"Run My Code"**
  
  ## On This Page
  We have replaced our *light clocks* with normal clocks, and put one on a rocket, where we can observe the very same effects! Just like the last page, I also add a descriptive tag to give you some reference of the speeds we are dealing with here

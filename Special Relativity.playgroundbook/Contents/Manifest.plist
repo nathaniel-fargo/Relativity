@@ -6,12 +6,16 @@
 	<array>
 		<string>Chapter1.playgroundchapter</string>
 	</array>
+	<key>ImageReference</key>
+	<string>poster.png</string>
 	<key>ContentIdentifier</key>
 	<string>com.apple.playgrounds.blank</string>
 	<key>ContentVersion</key>
 	<string>1.0</string>
 	<key>Name</key>
-	<string>Relativity</string>
+	<string>Special Relativity</string>
+	<key>ImageReference</key>
+	<string>poster.png</string>
 	<key>DeploymentTarget</key>
 	<string>ios-current</string>
 	<key>DevelopmentRegion</key>
