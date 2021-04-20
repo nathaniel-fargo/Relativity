@@ -27,13 +27,10 @@ struct Interaction {
 }
 var simulation = Interaction()
 
-simulation.simulationSpeed = 15
-
-print(UIScreen.main.nativeBounds)
-print(UIScreen.main.bounds)
+simulation.simulationSpeed = 10
 </string>
 			<key>ModifiedRange</key>
-			<string>{0, 535}</string>
+			<string>{0, 472}</string>
 			<key>OriginalContent</key>
 			<string>
 </string>

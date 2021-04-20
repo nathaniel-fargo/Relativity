@@ -35,5 +35,5 @@ var simulation = Interaction()
 //#-end-hidden-code
 //#-editable-code
 // Rocket go VRROOMM
-simulation.simulationSpeed = 30
+simulation.simulationSpeed = 15
 //#-end-editable-code

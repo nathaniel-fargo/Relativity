@@ -49,5 +49,5 @@ var simulation = Interaction()
 //#-end-hidden-code
 //#-editable-code
 // While the speed of light remains a constant, we can change the rate at which everything, including light, is simulated!
-simulation.simulationSpeed = 20
+simulation.simulationSpeed = 5
 //#-end-editable-code

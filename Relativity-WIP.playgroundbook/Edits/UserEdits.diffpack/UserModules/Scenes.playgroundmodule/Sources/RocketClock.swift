@@ -13,7 +13,7 @@ public class RocketClock: SimScene, MeterDelegate {
     let rocketSpeedLabel: SpeedLabel
     
     let rocket: SKNode
-    let rocketWidth: CGFloat = 200
+    let rocketWidth: CGFloat
     let rocketClock: TimeClock
     var rocketVelocity: CGFloat = 0
     
@@ -26,6 +26,7 @@ public class RocketClock: SimScene, MeterDelegate {
         rocketMeter = Meter(radius: meterRadius, vector: CGVector(0, 1), degrees: [0, CGFloat.pi / 2], labelText: "Rocket Velocity", xAxisLabelText: "Speed", yAxisLabelText: "Time")
         rocketSpeedLabel = SpeedLabel(subject: "rocket", width: simBounds.width)
         
+        rocketWidth = simBounds.width / 3
         rocket = SKNode()
         let rocketPath = SKShapeNode(path: RocketPath.rocketPath.cgPath)
         rocketPath.setScale(rocketWidth /  20)
@@ -33,11 +34,12 @@ public class RocketClock: SimScene, MeterDelegate {
         rocketPath.lineWidth = 0
         rocketPath.zRotation = -.pi / 2
         rocket.addChild(rocketPath)
-        rocketClock = TimeClock(radius: 35)
-        rocketClock.position = CGPoint(60, 30)
+        rocketClock = TimeClock(radius: rocketWidth / 6)
+        rocketClock.position = CGPoint(rocketWidth / 3, rocketWidth / 6)
         rocket.addChild(rocketClock)
         
         earth = SKSpriteNode(imageNamed: "worldwide.png")
+        earth.setScale(simBounds.width / 2 / 256)
         earthClock = TimeClock(radius: 35)
         earthClock.position = CGPoint(60, 80)
         earth.addChild(earthClock)

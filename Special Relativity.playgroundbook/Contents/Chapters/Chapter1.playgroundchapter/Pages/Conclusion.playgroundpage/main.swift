@@ -45,5 +45,5 @@ var simulation = Interaction()
 //#-end-hidden-code
 //#-editable-code
 // VVVRRRROOOOOMMMMM
-simulation.simulationSpeed = 30
+simulation.simulationSpeed = 15
 //#-end-editable-code

@@ -43,7 +43,7 @@ public class SpeedLabel: SKNode {
         case 0.55...0.7:
             speedText = " is zooming"
         case 0.7...0.9:
-            speedText = "is going \(round(vel * 1000) / 10)% of lightspeed"
+            speedText = " is going \(round(vel * 1000) / 10)% of lightspeed"
         case 0.9...0.96:
             speedText = "'s speed is impractical!"
         case 0.96...0.99:

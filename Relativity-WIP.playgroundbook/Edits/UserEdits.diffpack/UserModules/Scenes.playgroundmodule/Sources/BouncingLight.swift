@@ -66,12 +66,12 @@ public class BouncingLight: SimScene, MeterDelegate {
     }
     
     public override func update(_ currentTime: TimeInterval) {
+        meter.setVector(to: photon.getDirection())
         photon.move(simulationSpeed: simSpeed)
         photon.keepInRect(rect: simBounds, simSpeed: simSpeed)
         for rect in rects {
             let _ = photon.keepOutOfRect(rect: rect.frame, simSpeed: simSpeed)
         }
-        meter.setVector(to: photon.getDirection())
     }
     
     public override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {

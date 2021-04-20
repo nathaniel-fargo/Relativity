@@ -18,7 +18,7 @@ PlaygroundPage.current.liveView = view
 // Get Scene
 let scene = (view as! SimViewController).getScene() as! SimScene
 
-scene.simSpeed = 15
+scene.simSpeed = 10
 </string>
 			<key>ModifiedRange</key>
 			<string>{0, 261}</string>
